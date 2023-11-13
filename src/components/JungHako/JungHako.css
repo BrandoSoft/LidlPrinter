@@ -1,0 +1,54 @@
+
+/* Styl buttona przypominającego firmę Jungheinrich */
+.jungCss {
+    margin: 2px;
+    background-color: #ffc200; /* Kolor żółty, charakterystyczny dla Jungheinrich */
+    color: #000; /* Kolor czarny */
+    padding: 10px; /* Wewnętrzny odstęp */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+    transition: background-color 0.3s, color 0.3s; /* Efekt przejścia przy najechaniu */
+    text-transform: uppercase; /* Zamiana tekstu na wielkie litery */
+
+    /* Cień */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efekt przy najechaniu na button */
+.jungCss:hover {
+    background-color: #e2aa00; /* Ciemniejszy odcień żółtego przy najechaniu */
+    color: #000; /* Kolor czarny */
+}
+
+.hakoCss {
+    margin: 2px;
+    background-color: #ef6500; /* Kolor pomarańczowy, charakterystyczny dla Jungheinrich */
+    color: #3C464B; /* Kolor biały */
+    padding: 10px; /* Wewnętrzny odstęp */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+    transition: background-color 0.3s; /* Efekt przejścia przy najechaniu */
+    text-transform: uppercase; /* Zamiana tekstu na wielkie litery */
+
+    /* Cień */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efekt przy najechaniu na button */
+.hakoCss:hover {
+    background-color: #d64e00; /* Ciemniejszy odcień pomarańczowego przy najechaniu */
+}
+
+.jhButtons{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

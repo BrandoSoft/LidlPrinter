@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import ShopList from "./components/ShopList/ShopList";
+import PrintPage from "./components/PrintPage/PrintPage";
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [selectedInfo, setSelectedInfo] = useState(null);
+
+    useEffect(() => {
+        if (selectedInfo) {
+            window.print();
+        }
+    }, [selectedInfo]);
+
+    const handleInfoSelection = (info) => {
+        setSelectedInfo(null);
+        setSelectedInfo(info);
+    };
+
+    return (
+        <div>
+            {selectedInfo && <PrintPage info={selectedInfo} />}
+            <div className="container">
+                <ShopList onInfoSelect={handleInfoSelection}/>
+            </div>
+        </div>
+    );
 }
 
 export default App;

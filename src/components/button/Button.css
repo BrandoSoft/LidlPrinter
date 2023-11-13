@@ -1,0 +1,57 @@
+/* Styl przycisku */
+.button {
+    background-color: #00a0dc; /* Kolor niebieski */
+    color: #fff; /* Kolor biały */
+    padding: 10px 20px; /* Wewnętrzny odstęp */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+}
+
+/* Efekt przy najechaniu na przycisk */
+button:hover {
+    background-color: #007bb5; /* Zmiana koloru niebieskiego przy najechaniu */
+}
+
+/* Styl buttona przypominającego firmę Jungheinrich */
+.jungCss {
+    background-color: #3498db; /* Kolor niebieski */
+    color: #fff; /* Kolor biały */
+    padding: 10px 20px; /* Wewnętrzny odstęp */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+    transition: background-color 0.3s; /* Efekt przejścia przy najechaniu */
+
+    /* Cień */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efekt przy najechaniu na button */
+.jungCss:hover {
+    background-color: #2980b9; /* Zmiana koloru niebieskiego przy najechaniu */
+}
+
+.hakoCss {
+    background-color: #4caf50; /* Kolor zielony */
+    color: #fff; /* Kolor biały */
+    padding: 10px 20px; /* Wewnętrzny odstęp */
+    font-size: 16px; /* Rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none; /* Brak obramowania */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+    transition: background-color 0.3s; /* Efekt przejścia przy najechaniu */
+
+    /* Cień */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efekt przy najechaniu na button */
+.hakoCss:hover {
+    background-color: #45a049; /* Zmiana koloru zielonego przy najechaniu */
+}

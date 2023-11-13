@@ -1,0 +1,8 @@
+.shoplistContainer{
+    margin: 10px auto;
+    display: flex;
+    width: 1900px;
+    background-color: #2980b9;
+    flex-wrap: wrap;
+    justify-content: center;
+}
