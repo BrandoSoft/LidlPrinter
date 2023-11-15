@@ -26,4 +26,5 @@ npm install
 
 ## Zmiany
 
-v0.1 - MVC projektu
+v 0.1 - MVC projektu
+v 0.1.1 - poprawa css by nie drukowało na 2 stronach, dodanie numerów seryjnych
