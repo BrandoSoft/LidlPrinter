@@ -107,7 +107,7 @@
     "sklep": "1339",
     "miasto": "Warszawa",
     "adres": "al. Krakowska 253",
-    "szpura": ["154 C", "154D"],
+    "szpura": ["154 C", "154 D"],
     "paleciak": ["98154143", "98261300", "98262340", "98328770"],
     "hako": ["12345-1"]
   },
@@ -131,7 +131,7 @@
     "sklep": "1475",
     "miasto": "Pruszków",
     "adres": "Bohaterów Warszawy",
-    "szpura": ["163D", "164A"],
+    "szpura": ["163 D", "164 A"],
     "paleciak": ["98227102", "98061069", "98376201", "98112127"],
     "hako": ["12345-1"]
   },
@@ -139,7 +139,7 @@
     "sklep": "1495",
     "miasto": "Konstancin Jeziorna",
     "adres": "1000-lecia Państwa Polskiego 2",
-    "szpura": ["148D", "149A"],
+    "szpura": ["148 D", "149 A"],
     "paleciak": ["98261303", "98282408"],
     "hako": ["12345-1"]
   },
@@ -147,7 +147,7 @@
     "sklep": "1527",
     "miasto": "Warszawa",
     "adres": "Puławska 540",
-    "szpura": ["148B", "148C"],
+    "szpura": ["148 B", "148 C"],
     "paleciak": ["98329041", "98064454", "98112128"],
     "hako": ["12345-1"]
   },
@@ -163,7 +163,7 @@
     "sklep": "1572",
     "miasto": "Warszawa",
     "adres": "Bolesława 1a",
-    "szpura": ["160A", "160B"],
+    "szpura": ["160 A", "160 B"],
     "paleciak": ["98329063", "98094902", "98126663"],
     "hako": ["12345-1"]
   },
@@ -171,7 +171,7 @@
     "sklep": "1645",
     "miasto": "Łatchorzew",
     "adres": "Warszawska 216",
-    "szpura": ["161 C", "161D"],
+    "szpura": ["161 C", "161 D"],
     "paleciak": ["98376206", "98376214", "98112129"],
     "hako": ["12345-1"]
   },
@@ -179,7 +179,7 @@
     "sklep": "1698",
     "miasto": "Warszawa",
     "adres": "Stryjeńskich 15J",
-    "szpura": ["151C", "151D"],
+    "szpura": ["151 C", "151 D"],
     "paleciak": ["98065212", "98065213", "98282461", "90435604"],
     "hako": ["12345-1"]
   },
