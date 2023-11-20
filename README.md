@@ -9,9 +9,8 @@ Live: https://brandosoft.github.io/LidlPrinter/
 
 - [O projekcie](#o-projekcie)
 - [Instalacja](#instalacja)
+- [ToDO](#todo)
 - [Zmiany](#zmiany)
-- [Użycie](#użycie)
-- [Licencja](#licencja)
 
 ## O Projekcie
 
@@ -23,6 +22,16 @@ Aplikacja wspomagająca logistykę parku maszynowego.
 ```bash
 npm install
 ```
+## ToDO
+
+- Przemodelowanie karty i okna
+- Dodanie numerów hako
+- Dodanie brakujących sklepów
+- Kolory wózków na dany miesiąc, które już były, które będą w przyszłości
+- Możliwość filtrowania, kolorowania wózków które mają mieć przegląd
+- Liczniki ile wózków zrobionych, ile do zrobienia
+
+
 
 ## Zmiany
 
