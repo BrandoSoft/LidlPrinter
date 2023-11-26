@@ -358,7 +358,31 @@
     "hako": ["12345-1"]
   },
   {
+    "sklep": "2125",
+    "miasto": "Otrębusy",
+    "adres": "Pszczelińska 111",
+    "szpura": ["165B", "165C"],
+    "paleciak": ["98334368", "98334369"],
+    "hako": ["12345-1"]
+  },
+  {
     "sklep": "2147",
+    "miasto": "Radom",
+    "adres": "Al. Wolska Polskiego 12",
+    "szpura": ["142 A", "142 B"],
+    "paleciak": ["98334735", "98334736"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2150",
+    "miasto": "Radom",
+    "adres": "Al. Wolska Polskiego 12",
+    "szpura": ["142 A", "142 B"],
+    "paleciak": ["98334735", "98334736"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2152",
     "miasto": "Radom",
     "adres": "Al. Wolska Polskiego 12",
     "szpura": ["142 A", "142 B"],
