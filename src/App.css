@@ -10,12 +10,12 @@ body {
 .container {
   width: 100vw;
   display: flex;
-  flex-wrap: wrap; /* Elementy zaczynające nowy wiersz w razie potrzeby */
-  gap: 20px;
+  flex-wrap: wrap;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #00a0dc;
 }
 
 .sendingLetter{

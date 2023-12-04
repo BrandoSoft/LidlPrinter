@@ -1,0 +1,16 @@
+.BarContainer{
+    display: flex;
+    width: 95%;
+    height: 50px;
+    background-color: #3C464B;
+    margin: 0 auto;
+justify-content: space-between;
+}
+.BarContainerTitle{
+    font-size: 25px;
+    color: #e0e0e0;
+}
+.BarContainerIcon{
+    font-size: 50px;
+    color: #e0e0e0;
+}
