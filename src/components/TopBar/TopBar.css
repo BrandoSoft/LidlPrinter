@@ -9,6 +9,8 @@ justify-content: space-between;
 .BarContainerTitle{
     font-size: 25px;
     color: #e0e0e0;
+    margin: auto 10px;
+    font-weight: bold;
 }
 .BarContainerIcon{
     font-size: 50px;

@@ -1,0 +1,43 @@
+.ForkContainer{
+    margin: 0 auto;
+    display: flex;
+    width: 95%;
+    background-color: #2980b9;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.forkFormContainer   {
+    display: flex;
+    flex-direction: column;
+    background-color: #b02424;
+    width: 30%;
+    justify-content: space-between;
+
+}
+.forkFormAddForm{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.forkArrivesLi{
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #60c40f;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.forkArrivesLiDate, .forkArrivesShop, .forkArrivesSN {
+    background-color: #fff;
+    margin: 10px;
+}
