@@ -13,11 +13,11 @@ function App() {
     const [fakeData, setFakeData]= useState([
         {   date: '11.12.2023',
             shopNumber: 1239,
-            serialNumber: 1122121212121
+            serialNumber: 98223221
         },
         {   date: '11.12.2023',
             shopNumber: 1111,
-            serialNumber: 11221231231
+            serialNumber: 98010333
         },
     ])
 

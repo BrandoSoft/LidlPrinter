@@ -7,27 +7,62 @@
     justify-content: center;
 }
 
+/* START FORM CSS  */
+
+.forkFormAddForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.forkFormAddForm input {
+    padding: 12px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.forkFormAddForm input:focus {
+    border-color: #4CAF50;
+}
+
+.forkFormAddForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 40px;
+    transition: background-color 0.3s;
+}
+
+.forkFormAddForm button:hover {
+    background-color: #45a049;
+}
+
+/* END FORM CSS  */
+
 .forkFormContainer   {
     display: flex;
     flex-direction: column;
-    background-color: #b02424;
+    background-color: #1b74a9;
     width: 30%;
     justify-content: space-between;
 
 }
-.forkFormAddForm{
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    width: 300px;
-    margin: 0 auto;
-}
+
 
 .forkArrivesLi{
     display: flex;
     flex-direction: row;
-    background-color: #fff;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bolder;
     padding: 5px;
     background-color: #60c40f;
 }
@@ -39,5 +74,87 @@ ul {
 }
 .forkArrivesLiDate, .forkArrivesShop, .forkArrivesSN {
     background-color: #fff;
-    margin: 10px;
+    margin: 5px;
 }
+
+.forkFormContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.forksAtStock,
+.forksToSend,
+.forksHistory,
+.availableForks {
+    width: 600px;
+}
+
+.availableForks {
+    width: 200px;
+}
+
+/* START UL CSS */
+
+/* Styl dla li */
+li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+/* Styl dla zawartości li */
+.forkArrivesLi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 5px;
+    width: 600px;
+}
+
+/* Styl dla checkboxa */
+.forkArrivesLiIMS{
+    display: flex;
+    justify-content: center;
+    width: 60px;
+}
+
+
+/* Styl dla daty */
+.forkArrivesLiDate {
+    display: flex;
+    justify-content: center;
+    width: 130px;
+}
+
+/* Styl dla numeru sklepu */
+.forkArrivesShop {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+}
+
+/* Styl dla numeru seryjnego */
+.forkArrivesSN {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+
+/* Styl dla strzałki */
+.forkArrivesLiButton  {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+}
+.forkArrivesPrio {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    background-color: #b02424;
+}
+
+/* END UL CSS */
