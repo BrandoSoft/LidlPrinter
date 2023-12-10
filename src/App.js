@@ -6,6 +6,8 @@ import TopBar from "./components/TopBar/TopBar";
 import ForkLifterList from "./components/ForkLiftersList/ForkLifterList";
 
 
+
+
 function App() {
     const [selectedInfo, setSelectedInfo] = useState(null);
     const [isShopListVisible, setShopListVisible] = useState(false);
