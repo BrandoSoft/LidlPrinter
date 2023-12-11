@@ -1,16 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './ForkLifterList.css'
 import ForkArrives from "./ForkArrives";
 import { HiArrowCircleRight } from "react-icons/hi";
 
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import {db} from "../../firebase";
+
 const ForkForm = ({data}) => {
+
+    const [inputShop, setInputShop] = useState('');
+    const [inputSN, setInputSN] = useState('');
+// Create Data
+
+    const addForkToDB = async (e) => {
+        e.preventDefault(e)
+
+        if (inputSN === '' || inputShop === '') {
+            alert('Wprowadź numer seryjny i numer sklepu');
+            return
+        }
+        await addDoc(collection(db, 'forks'),
+            {
+                fDate: Timestamp.now(),
+                ims: false,
+                prio: 11,
+                serialNumber: inputSN,
+                shopNumber: inputShop
+            })
+    }
+
     return (
         <div className='forkFormContainer'>
             <div className="forksAtStock">
-                <form className='forkFormAddForm'>
-                    <input type="number" placeholder='Sklep'/>
-                    <input type="number" placeholder='Numer Seryjny'/>
+                <form className='forkFormAddForm' onSubmit={addForkToDB}>
+                    <input
+                        type="number"
+                        value={inputShop}
+                        onChange={e=>setInputShop(e.target.value)}
+                        placeholder='Sklep'
+                    />
+                    <input
+                        type="number"
+                        value={inputSN}
+                        onChange={e=>setInputSN(e.target.value)}
+                        placeholder='Numer Seryjny'
+                    />
                     <button>+</button>
                 </form>
                 <ul> <li>
@@ -26,9 +61,10 @@ const ForkForm = ({data}) => {
                     {data.map((data, index) =>
                         ( <ForkArrives
                             key={index}
-                            date={data.date}
+                            date={data.formatedFDATE}
                             shopNumber={data.shopNumber}
                             serialNumber={data.serialNumber}
+                            prio={data.prio}
                         />)
                     )}
                 </ul>

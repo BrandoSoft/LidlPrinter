@@ -3,7 +3,7 @@ import React from 'react';
 import { HiArrowCircleRight } from "react-icons/hi";
 
 import './ForkLifterList.css'
-const ForkArrives = ({serialNumber,shopNumber, date}) => {
+const ForkArrives = ({serialNumber,shopNumber, date, prio}) => {
     return (
         <div>
             <li>
@@ -12,7 +12,7 @@ const ForkArrives = ({serialNumber,shopNumber, date}) => {
                     <div className='forkArrivesLiDate' >{date}</div>
                     <div className='forkArrivesShop'>{shopNumber}</div>
                     <div className='forkArrivesSN'>{serialNumber}</div>
-                    <div className='forkArrivesPrio'>2</div>
+                    <div className='forkArrivesPrio'>{prio}</div>
                     <div className='forkArrivesLiButton'><HiArrowCircleRight /></div>
                 </div>
             </li>

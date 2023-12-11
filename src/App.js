@@ -5,23 +5,16 @@ import React, { useState, useEffect } from 'react';
 import TopBar from "./components/TopBar/TopBar";
 import ForkLifterList from "./components/ForkLiftersList/ForkLifterList";
 
-
+import { db } from "./firebase";
+import {query, collection, onSnapshot} from 'firebase/firestore'
+import { format } from 'date-fns';
 
 
 function App() {
     const [selectedInfo, setSelectedInfo] = useState(null);
     const [isShopListVisible, setShopListVisible] = useState(false);
     const [isForkLiftersListVisible, setForkLiftersList] = useState(true);
-    const [fakeData, setFakeData]= useState([
-        {   date: '11.12.2023',
-            shopNumber: 1239,
-            serialNumber: 98223221
-        },
-        {   date: '11.12.2023',
-            shopNumber: 1111,
-            serialNumber: 98010333
-        },
-    ])
+    const [forksIN, setForksIN]= useState([])
 
     useEffect(() => {
         if (selectedInfo) {
@@ -41,6 +34,37 @@ function App() {
     const handleForkLiftList = () => {
         setForkLiftersList((prevVisible) => !prevVisible);
     };
+// Read data from Firebase
+    useEffect(()=>{
+        const q = query(collection(db, 'forks'))
+
+        const unsubscribe = onSnapshot(q, (querySnapshot)=>{
+            let forksArr = []
+            // querySnapshot.forEach((doc) => {
+            //     forksArr.push({...doc.data(), id: doc.id})
+            // });
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+
+                //upraszczamy
+                //const timestampObject = doc.data().fDate
+                //const milliseconds = timestampObject.seconds * 1000 + Math.round(timestampObject.nanoseconds / 1000000);
+                //const fDate = new Date(milliseconds)
+                //nowa wersja:
+
+                const formatedFDATE = format(new Date(doc.data().fDate.seconds * 1000 + Math.round(doc.data().fDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
+
+                forksArr.push({...doc.data(), formatedFDATE, id: doc.id})
+
+            });
+            setForksIN(forksArr)
+        })
+        return () => unsubscribe();
+    }, [])
+
+
+
+
 
     return (
         <div>
@@ -59,7 +83,7 @@ function App() {
                     isForkLiftersListVisible={isForkLiftersListVisible}
                     type='forklifter'
                 />
-                {isForkLiftersListVisible && <ForkLifterList data={fakeData}/>}
+                {isForkLiftersListVisible && <ForkLifterList data={forksIN}/>}
             </div>
         </div>
     );
