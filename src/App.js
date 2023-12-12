@@ -6,7 +6,7 @@ import TopBar from "./components/TopBar/TopBar";
 import ForkLifterList from "./components/ForkLiftersList/ForkLifterList";
 
 import { db } from "./firebase";
-import {query, collection, onSnapshot} from 'firebase/firestore'
+import {query, collection, onSnapshot, deleteDoc,doc, updateDoc} from 'firebase/firestore'
 import { format } from 'date-fns';
 
 
@@ -62,8 +62,18 @@ function App() {
         return () => unsubscribe();
     }, [])
 
+// Delete Data from Firebase
+    const deleteFORK = async (id)=>{
+        await deleteDoc(doc(db,'forks', id))
+    }
 
+// Update Status (move between tables)
 
+    const updateStatus = async (id, forkStatus) =>{
+        await updateDoc(doc(db, 'forks', id), {
+            status: forkStatus
+        })
+    }
 
 
     return (
@@ -83,7 +93,13 @@ function App() {
                     isForkLiftersListVisible={isForkLiftersListVisible}
                     type='forklifter'
                 />
-                {isForkLiftersListVisible && <ForkLifterList data={forksIN}/>}
+                {isForkLiftersListVisible &&
+                    <ForkLifterList
+                        data={forksIN}
+                        deleteFORK={deleteFORK}
+                        updateStatus={updateStatus}
+                    />
+                }
             </div>
         </div>
     );

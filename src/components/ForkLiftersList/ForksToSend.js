@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { HiArrowCircleRight } from "react-icons/hi";
+import { HiArrowCircleLeft } from "react-icons/hi";
+import { FaBoxArchive } from "react-icons/fa6";
 
 import './ForkLifterList.css'
-const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
 
     return (
         <div>
@@ -14,11 +15,12 @@ const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                     <div className='forkArrivesShop'>{shopNumber}</div>
                     <div className='forkArrivesSN'>{serialNumber}</div>
                     <div className='forkArrivesPrio'>{prio}</div>
-                    <div className='forkArrivesLiButton' onClick={()=> updateStatus(id, "done")}><HiArrowCircleRight /></div>
+                    <div className='forkArrivesLiButton' onClick={()=> updateStatus(id, "arrived")}><HiArrowCircleLeft /></div>
+                    <div className='forkArrivesLiButton' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                 </div>
             </li>
         </div>
     );
 };
 
-export default ForkArrives;
+export default ForksToSend;

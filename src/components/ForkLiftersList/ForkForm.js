@@ -6,8 +6,10 @@ import { HiArrowCircleRight } from "react-icons/hi";
 
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import {db} from "../../firebase";
+import ForksToSend from "./ForksToSend";
+import ForkArchive from "./ForkArchive";
 
-const ForkForm = ({data}) => {
+const ForkForm = ({data,deleteFORK, updateStatus}) => {
 
     const [inputShop, setInputShop] = useState('');
     const [inputSN, setInputSN] = useState('');
@@ -22,6 +24,7 @@ const ForkForm = ({data}) => {
         }
         await addDoc(collection(db, 'forks'),
             {
+                status: 'arrived',
                 fDate: Timestamp.now(),
                 ims: false,
                 prio: 11,
@@ -58,22 +61,96 @@ const ForkForm = ({data}) => {
                         <div className='forkArrivesLiButton'></div>
                     </div>
                 </li>
-                    {data.map((data, index) =>
-                        ( <ForkArrives
-                            key={index}
-                            date={data.formatedFDATE}
-                            shopNumber={data.shopNumber}
-                            serialNumber={data.serialNumber}
-                            prio={data.prio}
-                        />)
-                    )}
+                    {data.map((data, index) => {
+                        if (data.status === 'arrived') {
+                            return (
+                                <ForkArrives
+                                    key={index}
+                                    date={data.formatedFDATE}
+                                    shopNumber={data.shopNumber}
+                                    serialNumber={data.serialNumber}
+                                    prio={data.prio}
+                                    id={data.id}
+                                    deleteFORK={deleteFORK}
+                                    updateStatus={updateStatus}
+                                />
+                            );
+                        }
+                        return null; // Dodaj ten null, aby uniknąć błędu kompilacji
+                    })}
                 </ul>
             </div>
            <div className="forksToSend">
-               Forks to send
+               <ul>
+                   <li>
+                       <div className='forkArrivesLi'>
+                           <div>Wózki do wysłania</div>
+                       </div>
+                   </li>
+                   <li>
+                   <div className='forkArrivesLi'>
+                       <div className='forkArrivesLiIMS'>IMS</div>
+                       <div className='forkArrivesLiDate'>DATA</div>
+                       <div className='forkArrivesShop'>SKLEP</div>
+                       <div className='forkArrivesSN'>SN</div>
+                       <div className='forkArrivesPrio'>Priorytet</div>
+                       <div className='forkArrivesLiButton'></div>
+                   </div>
+               </li>
+                   {data.map((data, index) => {
+                       if (data.status === 'done') {
+                           return (
+                               <ForksToSend
+                                   key={index}
+                                   date={data.formatedFDATE}
+                                   shopNumber={data.shopNumber}
+                                   serialNumber={data.serialNumber}
+                                   prio={data.prio}
+                                   id={data.id}
+                                   deleteFORK={deleteFORK}
+                                   updateStatus={updateStatus}
+                               />
+                           );
+                       }
+                       return null; // Dodaj ten null, aby uniknąć błędu kompilacji
+                   })}
+               </ul>
            </div>
             <div className="forksHistory">
-                Fork History
+                <ul>
+                    <li>
+                        <div className='forkArrivesLi'>
+                            <div>Archiwum wózków</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div className='forkArrivesLi'>
+                            <div className='forkArrivesLiIMS'>IMS</div>
+                            <div className='forkArrivesLiDate'>DATA</div>
+                            <div className='forkArrivesShop'>SKLEP</div>
+                            <div className='forkArrivesSN'>SN</div>
+                            <div className='forkArrivesPrio'>Priorytet</div>
+                            <div className='forkArrivesLiButton'></div>
+                        </div>
+                    </li>
+                    {data.map((data, index) => {
+                        if (data.status === 'archived') {
+                            return (
+                                <ForkArchive
+                                    key={index}
+                                    date={data.formatedFDATE}
+                                    shopNumber={data.shopNumber}
+                                    serialNumber={data.serialNumber}
+                                    prio={data.prio}
+                                    id={data.id}
+                                    deleteFORK={deleteFORK}
+                                    updateStatus={updateStatus}
+                                />
+                            );
+                        }
+                        return null; // Dodaj ten null, aby uniknąć błędu kompilacji
+                    })}
+                </ul>
             </div>
             <div className="availableForks">
                 list of forks
