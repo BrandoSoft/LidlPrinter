@@ -375,17 +375,25 @@
   },
   {
     "sklep": "2150",
-    "miasto": "Radom",
-    "adres": "Al. Wolska Polskiego 12",
-    "szpura": ["142 A", "142 B"],
+    "miasto": "Warszawa",
+    "adres": "Rydygiera",
+    "szpura": ["141 A", "141 B"],
     "paleciak": ["98334735", "98334736"],
     "hako": ["12345-1"]
   },
   {
     "sklep": "2152",
-    "miasto": "Radom",
-    "adres": "Al. Wolska Polskiego 12",
-    "szpura": ["142 A", "142 B"],
+    "miasto": "Neo",
+    "adres": "Neo",
+    "szpura": ["xxx A", "xxx B"],
+    "paleciak": ["98334735", "98334736"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2170",
+    "miasto": "Warszawa",
+    "adres": "Tamka",
+    "szpura": ["140 C", "140 D"],
     "paleciak": ["98334735", "98334736"],
     "hako": ["12345-1"]
   }
