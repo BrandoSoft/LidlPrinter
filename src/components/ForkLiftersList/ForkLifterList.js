@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './ForkLifterList.css'
+import './ForkListCSS.css'
 import ForkForm from "./ForkForm";
 const ForkLifterList = ({data, deleteFORK, updateStatus}) => {
     return (
-        <div className='ForkContainer'>
+        <div className='forkContainer'>
             <ForkForm
                 data={data}
                 deleteFORK={deleteFORK}

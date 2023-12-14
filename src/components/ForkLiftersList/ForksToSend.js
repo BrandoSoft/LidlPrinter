@@ -3,7 +3,7 @@ import React from 'react';
 import { HiArrowCircleLeft } from "react-icons/hi";
 import { FaBoxArchive } from "react-icons/fa6";
 
-import './ForkLifterList.css'
+// import './ForkLifterList__.css'
 const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
 
     return (

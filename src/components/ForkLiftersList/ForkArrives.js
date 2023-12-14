@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HiArrowCircleRight } from "react-icons/hi";
 
-import './ForkLifterList.css'
+// import './ForkLifterList__.css'
 const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
 
     return (

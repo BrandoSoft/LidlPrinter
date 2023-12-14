@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-import './ForkLifterList.css'
+import './ForkListCSS.css'
 import ForkArrives from "./ForkArrives";
-import { HiArrowCircleRight } from "react-icons/hi";
 
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import {db} from "../../firebase";
@@ -13,6 +12,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
 
     const [inputShop, setInputShop] = useState('');
     const [inputSN, setInputSN] = useState('');
+
 // Create Data
 
     const addForkToDB = async (e) => {
@@ -34,8 +34,8 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
     }
 
     return (
-        <div className='forkFormContainer'>
-            <div className="forksAtStock">
+        <div className='mainTable'>
+            <div className="mainTable__column">
                 <form className='forkFormAddForm' onSubmit={addForkToDB}>
                     <input
                         type="number"
@@ -52,7 +52,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                     <button>+</button>
                 </form>
                 <ul> <li>
-                    <div className='forkArrivesLi'>
+                    <div className='mainTable__column'>
                         <div className='forkArrivesLiIMS'>IMS</div>
                         <div className='forkArrivesLiDate'>DATA</div>
                         <div className='forkArrivesShop'>SKLEP</div>
@@ -80,7 +80,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                     })}
                 </ul>
             </div>
-           <div className="forksToSend">
+           <div className="mainTable__column">
                <ul>
                    <li>
                        <div className='forkArrivesLi'>
@@ -116,7 +116,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                    })}
                </ul>
            </div>
-            <div className="forksHistory">
+            <div className="mainTable__column">
                 <ul>
                     <li>
                         <div className='forkArrivesLi'>
@@ -152,7 +152,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                     })}
                 </ul>
             </div>
-            <div className="availableForks">
+            <div className="mainTable__column-forkStock">
                 list of forks
             </div>
         </div>

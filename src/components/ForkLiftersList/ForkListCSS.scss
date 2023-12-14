@@ -1,0 +1,16 @@
+.forkContainer{
+  display: flex;
+  width: 95%;
+  background-color: #111827;
+  margin: 0 auto;
+}
+
+.mainTable{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  &__column{
+    background-color: #fff;
+    width: 250px;
+  }
+}
