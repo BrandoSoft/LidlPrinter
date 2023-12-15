@@ -14,8 +14,26 @@
   background-color: #1F2937;
   border-radius: 5px;
   width: 95%;
-  margin: 10px auto;
-  padding: 20px 10px;
+  margin: 5px auto;
+  padding: 5px 10px;
+  &__button{
+   margin: 10px 5px 0 5px;
+    width: 39px;
+    background-color: #374151;
+    color: #D1D5DB;
+    font-weight: 900;
+    border: 2px solid #D1D5DB;
+    border-radius: 10px;
+  }
+  &__ims{
+    margin: 10px 5px 0 5px;
+    width: 50px;
+    background-color: #374151;
+    color: #D1D5DB;
+    font-weight: 900;
+    border: 2px solid #D1D5DB;
+    border-radius: 10px;
+  }
 }
 
 ul{
@@ -38,6 +56,30 @@ li{
   justify-content: space-around;
   flex-direction: column;
   width: 100%;
+  &__form__add {
+    display: flex;
+    align-items: center;
+    &__input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    &__button {
+      background-color: #34D399;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 0 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: #28a745; /* Dostosuj kolor hovera według potrzeb */
+    }
+  }
   &__data{
     display: flex;
     flex-direction: row;
@@ -124,4 +166,8 @@ li{
       }
     }
   }
+}
+
+.input-short{
+  width: 80px;
 }

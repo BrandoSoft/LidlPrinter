@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { HiArrowCircleLeft } from "react-icons/hi";
-import { FaBoxArchive, FaStar } from "react-icons/fa6";
+import { FaBoxArchive, FaScrewdriverWrench, FaStar } from "react-icons/fa6";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
-import { TiShoppingCart } from "react-icons/ti";
 
 // import './ForkLifterList__.css'
 const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
@@ -32,7 +32,9 @@ const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                             <div className="forkCard__nav__date__out">W:{date}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
-                               <div className='forkArrivesLiButton' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
+                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><FaArrowAltCircleLeft /> </div>
+                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><FaScrewdriverWrench /> </div>
+                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>
                 </div>
