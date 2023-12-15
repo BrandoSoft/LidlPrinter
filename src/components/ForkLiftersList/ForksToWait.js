@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { HiArrowCircleLeft } from "react-icons/hi";
-import { FaBoxArchive, FaStar, FaTrashCan } from "react-icons/fa6";
-import { FaRegStar } from "react-icons/fa";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { TiShoppingCart } from "react-icons/ti";
+import { FaBoxArchive } from "react-icons/fa6";
 
-// import './ForkLifterList__.css'
-const ForkArchive = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
+import './ForkListCSS.css'
+import { FaStar } from "react-icons/fa6";
+import { FaRegStar } from "react-icons/fa";
+const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
 
     return (
         <div>
@@ -33,7 +33,8 @@ const ForkArchive = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                             <div className="forkCard__nav__date__out">W:{date}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
-                            <div className='forkArrivesLiButton' onClick={()=> updateStatus(id, "arrived")}><FaArrowAltCircleLeft /> </div>
+                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><TiShoppingCart /> </div>
+                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>
                 </div>
@@ -42,4 +43,4 @@ const ForkArchive = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
     );
 };
 
-export default ForkArchive;
+export default ForkArrives;
