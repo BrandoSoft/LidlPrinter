@@ -8,8 +8,7 @@ import {db} from "../../firebase";
 import ForksToSend from "./ForksToSend";
 import ForkArchive from "./ForkArchive";
 
-import { FaRegStar } from "react-icons/fa";
-import { FaStar } from "react-icons/fa6";
+
 import ForksToWait from "./ForksToWait";
 
 const ForkForm = ({data,deleteFORK, updateStatus}) => {
@@ -41,7 +40,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
         <div className='forkContainer'>
             <div className="forkList">lista zastępczych</div>
             <div className='mainTable'>
-                <div className="mainTable__column">
+                <div className="mainTable__form forkList">
                     <form className='forkFormAddForm' onSubmit={addForkToDB}>
                         <input
                             type="number"
@@ -57,98 +56,102 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                         />
                         <button>+</button>
                     </form>
-                    <ul>
-                        <li>
-                            <div className="mainTable__column__title">Nowe wózki w WH</div>
-                        </li>
-                        {data.map((data, index) => {
-                            if (data.status === 'arrived') {
-                                return (
-                                    <ForkArrives
-                                        key={index}
-                                        date={data.formatedFDATE}
-                                        shopNumber={data.shopNumber}
-                                        serialNumber={data.serialNumber}
-                                        prio={data.prio}
-                                        id={data.id}
-                                        deleteFORK={deleteFORK}
-                                        updateStatus={updateStatus}
-                                    />
-                                );
-                            }
-                            return null; // Dodaj ten null, aby uniknąć błędu kompilacji
-                        })}
-                    </ul>
                 </div>
-               <div className="mainTable__column">
-                   <ul>
-                       <li>
-                           <div className="mainTable__column__title">Poczekalnia</div>
-                       </li>
-                       {data.map((data, index) => {
-                           if (data.status === 'wait') {
-                               return (
-                                   <ForksToWait
-                                       key={index}
-                                       date={data.formatedFDATE}
-                                       shopNumber={data.shopNumber}
-                                       serialNumber={data.serialNumber}
-                                       prio={data.prio}
-                                       id={data.id}
-                                       deleteFORK={deleteFORK}
-                                       updateStatus={updateStatus}
-                                   />
-                               );
-                           }
-                           return null; // Dodaj ten null, aby uniknąć błędu kompilacji
-                       })}
+                <div className="mainTable__data">
+                    <div className="mainTable__data__column">
+                        <ul>
+                            <li>
+                                <div className="mainTable__data__column__title">Nowe wózki w WH</div>
+                            </li>
+                            {data.map((data, index) => {
+                                if (data.status === 'arrived') {
+                                    return (
+                                        <ForkArrives
+                                            key={index}
+                                            date={data.formatedFDATE}
+                                            shopNumber={data.shopNumber}
+                                            serialNumber={data.serialNumber}
+                                            prio={data.prio}
+                                            id={data.id}
+                                            deleteFORK={deleteFORK}
+                                            updateStatus={updateStatus}
+                                        />
+                                    );
+                                }
+                                return null;
+                            })}
+                        </ul>
+                    </div>
+                   <div className="mainTable__column">
+                       <ul>
+                           <li>
+                               <div className="mainTable__data__column__title">Poczekalnia</div>
+                           </li>
+                           {data.map((data, index) => {
+                               if (data.status === 'wait') {
+                                   return (
+                                       <ForksToWait
+                                           key={index}
+                                           date={data.formatedFDATE}
+                                           shopNumber={data.shopNumber}
+                                           serialNumber={data.serialNumber}
+                                           prio={data.prio}
+                                           id={data.id}
+                                           deleteFORK={deleteFORK}
+                                           updateStatus={updateStatus}
+                                       />
+                                   );
+                               }
+                               return null;
+                           })}
 
-                       <li>
-                           <div className="mainTable__column__title">Wózki do wysłania</div>
-                       </li>
-                       {data.map((data, index) => {
-                           if (data.status === 'done') {
-                               return (
-                                   <ForksToSend
-                                       key={index}
-                                       date={data.formatedFDATE}
-                                       shopNumber={data.shopNumber}
-                                       serialNumber={data.serialNumber}
-                                       prio={data.prio}
-                                       id={data.id}
-                                       deleteFORK={deleteFORK}
-                                       updateStatus={updateStatus}
-                                   />
-                               );
-                           }
-                           return null; // Dodaj ten null, aby uniknąć błędu kompilacji
-                       })}
-                   </ul>
-               </div>
-                <div className="mainTable__column">
-                    <ul>
-                        <li>
-                            <div className="mainTable__column__title">Archiwum wózków</div>
-                        </li>
+                           <li>
+                               <div className="mainTable__data__column__title">Wózki do wysłania</div>
+                           </li>
+                           {data.map((data, index) => {
+                               if (data.status === 'done') {
+                                   return (
+                                       <ForksToSend
+                                           key={index}
+                                           date={data.formatedFDATE}
+                                           shopNumber={data.shopNumber}
+                                           serialNumber={data.serialNumber}
+                                           prio={data.prio}
+                                           id={data.id}
+                                           deleteFORK={deleteFORK}
+                                           updateStatus={updateStatus}
+                                       />
+                                   );
+                               }
+                               return null;
+                           })}
+                       </ul>
+                   </div>
+                    <div className="mainTable__column">
+                        <ul>
+                            <li>
+                                <div className="mainTable__data__column__title">Archiwum wózków</div>
+                            </li>
 
-                        {data.map((data, index) => {
-                            if (data.status === 'archived') {
-                                return (
-                                    <ForkArchive
-                                        key={index}
-                                        date={data.formatedFDATE}
-                                        shopNumber={data.shopNumber}
-                                        serialNumber={data.serialNumber}
-                                        prio={data.prio}
-                                        id={data.id}
-                                        deleteFORK={deleteFORK}
-                                        updateStatus={updateStatus}
-                                    />
-                                );
-                            }
-                            return null; // Dodaj ten null, aby uniknąć błędu kompilacji
-                        })}
-                    </ul>
+                            {data.map((data, index) => {
+                                if (data.status === 'archived') {
+                                    return (
+                                        <ForkArchive
+                                            key={index}
+                                            date={data.formatedFDATE}
+                                            shopNumber={data.shopNumber}
+                                            serialNumber={data.serialNumber}
+                                            prio={data.prio}
+                                            id={data.id}
+                                            deleteFORK={deleteFORK}
+                                            updateStatus={updateStatus}
+                                        />
+                                    );
+                                }
+                                return null;
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

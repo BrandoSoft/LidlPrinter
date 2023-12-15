@@ -36,21 +36,27 @@ li{
 .mainTable {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   width: 100%;
-  &__column {
-    width: 230px;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    &__title{
-      background-color: #1F2937;
-      border-radius: 5px;
-      width: 95%;
-      margin: 2px auto;
-      padding: 10px;
-      color: #FBBF24;
+  &__data{
+    display: flex;
+    flex-direction: row;
+    &__column {
+      width: 230px;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
+      &__title{
+        background-color: #1F2937;
+        border-radius: 5px;
+        width: 95%;
+        margin: 2px auto;
+        padding: 10px;
+        color: #FBBF24;
+      }
     }
   }
+
 
 }
 
