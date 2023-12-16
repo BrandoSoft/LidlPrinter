@@ -1,5 +1,6 @@
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegStar,FaPlusCircle,FaMinusCircle  } from "react-icons/fa";
 import React from "react";
+import { updatePrio } from "./dbOperations";
 
 export const priorityStarGenerator = (starsToCheck, id) => {
 
@@ -13,9 +14,11 @@ export const priorityStarGenerator = (starsToCheck, id) => {
     ));
 
     return (
-        <div className='forkCard__shop__prio' onClick={() => console.log(id)}>
+        <div className='forkCard__shop__prio'>
+            <FaMinusCircle onClick={()=>updatePrio(id, stars - 1)} className='forkCard__shop__prio-minus'/>
             {filledStars}
             {emptyStars}
+            <FaPlusCircle onClick={()=>updatePrio(id,stars +1 )} className='forkCard__shop__prio-plus'/>
         </div>
     );
 };
