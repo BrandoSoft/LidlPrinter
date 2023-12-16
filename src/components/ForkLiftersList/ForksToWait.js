@@ -4,8 +4,9 @@ import { TiShoppingCart } from "react-icons/ti";
 import { FaBoxArchive } from "react-icons/fa6";
 
 import './ForkListCSS.css'
-import { FaStar } from "react-icons/fa6";
-import { FaRegStar } from "react-icons/fa";
+import { priorityStarGenerator } from "../../utils/PriorityStars";
+
+
 const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
 
     return (
@@ -19,13 +20,8 @@ const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
-                        <div className='forkCard__shop__prio'>
-                            <FaStar />
-                            <FaStar />
-                            <FaStar />
-                            <FaRegStar />
-                            <FaRegStar />
-                        </div>
+
+                        {priorityStarGenerator(prio, id)}
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>

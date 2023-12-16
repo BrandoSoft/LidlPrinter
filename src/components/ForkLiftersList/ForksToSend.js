@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { HiArrowCircleLeft } from "react-icons/hi";
 import { FaBoxArchive, FaScrewdriverWrench, FaStar } from "react-icons/fa6";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
