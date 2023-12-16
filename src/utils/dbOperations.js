@@ -1,9 +1,9 @@
 // Update Status (move between tables)
 
-import { doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, Timestamp, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-const updateStatus = async (id, forkStatus) =>{
+export const updateStatus = async (id, forkStatus) =>{
     await updateDoc(doc(db, 'forks', id), {
         status: forkStatus
     })
@@ -14,12 +14,32 @@ export const updatePrio = async (id, updatedPrio) =>{
     let starChecker = updatedPrio;
 
     if(updatedPrio >= 5) starChecker = 5;
-    if(updatedPrio <= 1) starChecker = 1;
+    if(updatedPrio <= 0) starChecker = 0;
 
-
-    await updateDoc(doc(db, 'forks', id), {
+    await updateDoc(doc(db,'forks', id), {
         prio: starChecker
     })
+}
 
-    console.log(starChecker)
+export const addForkToDB = async (e,inputSN, inputShop) => {
+    e.preventDefault(e)
+
+    if (inputSN === '' || inputShop === '') {
+        alert('Wprowadź numer seryjny i numer sklepu');
+        return
+    }
+    await addDoc(collection(db, 'forks'),
+        {
+            status: 'arrived',
+            fDate: Timestamp.now(),
+            ims: false,
+            prio: 11,
+            serialNumber: inputSN,
+            shopNumber: inputShop
+        })
+}
+
+// Delete Data from Firebase
+export const deleteFORK = async (id)=>{
+    await deleteDoc(doc(db,'forks', id))
 }

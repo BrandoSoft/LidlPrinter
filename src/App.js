@@ -62,20 +62,6 @@ function App() {
         return () => unsubscribe();
     }, [])
 
-// Delete Data from Firebase
-    const deleteFORK = async (id)=>{
-        await deleteDoc(doc(db,'forks', id))
-    }
-
-// Update Status (move between tables)
-
-    const updateStatus = async (id, forkStatus) =>{
-        await updateDoc(doc(db, 'forks', id), {
-            status: forkStatus
-        })
-    }
-
-
     return (
         <div>
             {selectedInfo && <PrintPage info={selectedInfo} />}
@@ -96,8 +82,6 @@ function App() {
                 {isForkLiftersListVisible &&
                     <ForkLifterList
                         data={forksIN}
-                        deleteFORK={deleteFORK}
-                        updateStatus={updateStatus}
                     />
                 }
             </div>

@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { FaBoxArchive, FaScrewdriverWrench, FaStar } from "react-icons/fa6";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
+import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
+import { updateStatus } from "../../utils/dbOperations";
+import { MdForklift } from "react-icons/md";
 
-// import './ForkLifterList__.css'
-const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, prio, id}) => {
     return (
         <div>
             <li>
@@ -17,13 +16,6 @@ const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
-                        <div className='forkCard__shop__prio'>
-                            <FaStar />
-                            <FaStar />
-                            <FaStar />
-                            <FaRegStar />
-                            <FaRegStar />
-                        </div>
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
@@ -31,7 +23,7 @@ const ForksToSend = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                             <div className="forkCard__nav__date__out">W:{date}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
-                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><FaArrowAltCircleLeft /> </div>
+                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /> </div>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><FaScrewdriverWrench /> </div>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>

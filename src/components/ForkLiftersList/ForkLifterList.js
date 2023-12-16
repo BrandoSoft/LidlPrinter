@@ -1,16 +1,12 @@
 import React from 'react';
 
 import './ForkListCSS.css'
-import ForkForm from "./ForkForm";
-const ForkLifterList = ({data, deleteFORK, updateStatus}) => {
+import ForkPage from "./ForkPage";
+const ForkLifterList = ({data}) => {
     return (
-
-            <ForkForm
+            <ForkPage
                 data={data}
-                deleteFORK={deleteFORK}
-                updateStatus={updateStatus}
             />
-
     );
 };
 

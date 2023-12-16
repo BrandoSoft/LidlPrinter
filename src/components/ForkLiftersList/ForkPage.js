@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
+import { MdForklift } from "react-icons/md";
+import { TiShoppingCart } from "react-icons/ti";
+import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
+
 import './ForkListCSS.css'
 import ForkArrives from "./ForkArrives";
-
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import {db} from "../../firebase";
 import ForksToSend from "./ForksToSend";
 import ForkArchive from "./ForkArchive";
 
-
 import ForksToWait from "./ForksToWait";
+import { addForkToDB } from "../../utils/dbOperations";
 
-const ForkForm = ({data,deleteFORK, updateStatus}) => {
+const ForkPage = ({data}) => {
 
     const [inputShop, setInputShop] = useState('');
     const [inputSN, setInputSN] = useState('');
@@ -19,23 +20,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
 
 // Create Data
 
-    const addForkToDB = async (e) => {
-        e.preventDefault(e)
 
-        if (inputSN === '' || inputShop === '') {
-            alert('Wprowadź numer seryjny i numer sklepu');
-            return
-        }
-        await addDoc(collection(db, 'forks'),
-            {
-                status: 'arrived',
-                fDate: Timestamp.now(),
-                ims: false,
-                prio: 11,
-                serialNumber: inputSN,
-                shopNumber: inputShop
-            })
-    }
 
     return (
         <div className='forkContainer'>
@@ -64,7 +49,7 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
             </div>
             <div className='mainTable'>
                 <div className="mainTable__form forkList">
-                    <form className='mainTable__form__add' onSubmit={addForkToDB}>
+                    <form className='mainTable__form__add' onSubmit={e => addForkToDB(e, inputSN, inputShop)}>
                         <input
                             type="number"
                             value={inputShop}
@@ -93,7 +78,10 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                     <div className="mainTable__data__column">
                         <ul>
                             <li>
-                                <div className="mainTable__data__column__title">Nowe wózki w WH</div>
+                                <div className="mainTable__data__column__title">
+                                    <div className="mainTable__data__column__title-text">Wózki w Magazynie</div>
+                                    <MdForklift className="mainTable__data__column__title-icon"/>
+                                </div>
                             </li>
                             {data.map((data, index) => {
                                 if (data.status === 'arrived') {
@@ -105,8 +93,6 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
                                             id={data.id}
-                                            deleteFORK={deleteFORK}
-                                            updateStatus={updateStatus}
                                         />
                                     );
                                 }
@@ -117,7 +103,10 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                    <div className="mainTable__data__column">
                        <ul>
                            <li>
-                               <div className="mainTable__data__column__title">Poczekalnia</div>
+                               <div className="mainTable__data__column__title">
+                                   <div className="mainTable__data__column__title-text">Poczekalnia</div>
+                                   <FaScrewdriverWrench className="mainTable__data__column__title-icon"/>
+                               </div>
                            </li>
                            {data.map((data, index) => {
                                if (data.status === 'wait') {
@@ -129,29 +118,6 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                                            serialNumber={data.serialNumber}
                                            prio={data.prio}
                                            id={data.id}
-                                           deleteFORK={deleteFORK}
-                                           updateStatus={updateStatus}
-                                       />
-                                   );
-                               }
-                               return null;
-                           })}
-
-                           <li>
-                               <div className="mainTable__data__column__title">Wózki do wysłania</div>
-                           </li>
-                           {data.map((data, index) => {
-                               if (data.status === 'done') {
-                                   return (
-                                       <ForksToSend
-                                           key={index}
-                                           date={data.formatedFDATE}
-                                           shopNumber={data.shopNumber}
-                                           serialNumber={data.serialNumber}
-                                           prio={data.prio}
-                                           id={data.id}
-                                           deleteFORK={deleteFORK}
-                                           updateStatus={updateStatus}
                                        />
                                    );
                                }
@@ -162,9 +128,32 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                     <div className="mainTable__data__column">
                         <ul>
                             <li>
-                                <div className="mainTable__data__column__title">Archiwum wózków</div>
+                                <div className="mainTable__data__column__title">
+                                    <div className="mainTable__data__column__title-text">Wózki do wysłania</div>
+                                    <TiShoppingCart className="mainTable__data__column__title-icon"/>
+                                </div>
                             </li>
-
+                            {data.map((data, index) => {
+                                if (data.status === 'done') {
+                                    return (
+                                        <ForksToSend
+                                            key={index}
+                                            date={data.formatedFDATE}
+                                            shopNumber={data.shopNumber}
+                                            serialNumber={data.serialNumber}
+                                            prio={data.prio}
+                                            id={data.id}
+                                        />
+                                    );
+                                }
+                                return null;
+                            })}
+                            <li>
+                                <div className="mainTable__data__column__title">
+                                    <div className="mainTable__data__column__title-text">Archiwum</div>
+                                    <FaBoxArchive className="mainTable__data__column__title-icon"/>
+                                </div>
+                            </li>
                             {data.map((data, index) => {
                                 if (data.status === 'archived') {
                                     return (
@@ -175,8 +164,6 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
                                             id={data.id}
-                                            deleteFORK={deleteFORK}
-                                            updateStatus={updateStatus}
                                         />
                                     );
                                 }
@@ -190,4 +177,4 @@ const ForkForm = ({data,deleteFORK, updateStatus}) => {
     );
 };
 
-export default ForkForm;
+export default ForkPage;

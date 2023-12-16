@@ -2,12 +2,14 @@ import React from 'react';
 
 import { TiShoppingCart } from "react-icons/ti";
 import { FaBoxArchive } from "react-icons/fa6";
+import { MdForklift } from "react-icons/md";
 
 import './ForkListCSS.css'
 import { priorityStarGenerator } from "../../utils/PriorityStars";
+import { updateStatus } from "../../utils/dbOperations";
 
 
-const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updateStatus}) => {
+const ForkArrives = ({serialNumber,shopNumber, date, prio, id,}) => {
 
     return (
         <div>
@@ -20,7 +22,6 @@ const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
-
                         {priorityStarGenerator(prio, id)}
                     </div>
                     <div className="forkCard__nav">
@@ -29,7 +30,8 @@ const ForkArrives = ({serialNumber,shopNumber, date, prio, id, deleteFORK, updat
                             <div className="forkCard__nav__date__out">W:{date}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
-                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><TiShoppingCart /> </div>
+                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /></div>
+                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "done")}><TiShoppingCart /> </div>
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>

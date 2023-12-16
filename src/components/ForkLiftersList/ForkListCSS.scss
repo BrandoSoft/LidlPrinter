@@ -1,17 +1,19 @@
+@import "../variables";
+
 .forkContainer{
   font-family:Roboto,ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;
   display: flex;
   flex-direction: column;
   width: 95%;
   min-height: 150vh;
-  background-color: #101726;
+  background-color: $background-color;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  color:#D1D5DB;
+  color:$primary-text-color;
 }
 .forkList{
-  background-color: #1F2937;
+  background-color: $card-color;
   border-radius: 5px;
   width: 95%;
   margin: 5px auto;
@@ -67,7 +69,7 @@ li{
       margin-right: 10px;
     }
     &__button {
-      background-color: #34D399;
+      background-color: $main-button-color;
       color: #fff;
       border: none;
       border-radius: 5px;
@@ -76,7 +78,7 @@ li{
       font-size: 16px;
       cursor: pointer;
       &:hover {
-        background-color: #28a745; /* Dostosuj kolor hovera według potrzeb */
+        background-color: #28a745;
       }
     }
 
@@ -90,12 +92,21 @@ li{
       justify-content: center;
       align-items: center;
       &__title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         background-color: #1F2937;
         border-radius: 5px;
         width: 95%;
         margin: 2px auto;
-        padding: 10px;
+        padding: 5px;
         color: #FBBF24;
+        &-icon{
+          font-size: 25px;
+          color: $main-button-color;
+          margin-right: 20px;
+        }
       }
     }
   }
