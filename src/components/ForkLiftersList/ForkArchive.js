@@ -2,14 +2,14 @@ import React from 'react';
 
 
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-import { updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 
 import { MdForklift } from "react-icons/md";
 import { FaBoxArchive, FaScrewdriverWrench } from "react-icons/fa6";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
 
-const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
+const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
 
     return (
         <div>
@@ -17,7 +17,7 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
                         <p>IMS</p>
-                        <input type='checkbox' />
+                        <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
                     </div>
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>

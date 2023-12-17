@@ -4,17 +4,17 @@ import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
 
 import './ForkListCSS.css'
-import { updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
-
+const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
+    console.log(ims)
     return (
         <div>
             <li>
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
                         <p>IMS</p>
-                        <input type='checkbox' />
+                        <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
                     </div>
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>

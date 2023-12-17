@@ -1,18 +1,18 @@
 import React from 'react';
 
 import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
-import { updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 import { MdForklift } from "react-icons/md";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 
-const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
     return (
         <div>
             <li>
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
                         <p>IMS</p>
-                        <input type='checkbox' />
+                        <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
                     </div>
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>

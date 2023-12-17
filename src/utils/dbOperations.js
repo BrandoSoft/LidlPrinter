@@ -51,3 +51,9 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
 export const deleteFORK = async (id)=>{
     await deleteDoc(doc(db,'forks', id))
 }
+
+export const toggleIMS = async (id, status)=>{
+    await updateDoc(doc(db, 'forks', id),{
+        ims: !status
+    })
+}

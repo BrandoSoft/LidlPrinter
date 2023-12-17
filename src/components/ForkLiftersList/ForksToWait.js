@@ -6,10 +6,10 @@ import { MdForklift } from "react-icons/md";
 
 import './ForkListCSS.css'
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-import { updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 
 
-const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id,}) => {
+const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
 
     return (
         <div>
@@ -17,7 +17,7 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id,}) => {
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
                         <p>IMS</p>
-                        <input type='checkbox' />
+                        <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
                     </div>
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>

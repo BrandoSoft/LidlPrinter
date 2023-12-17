@@ -59,6 +59,7 @@ const ForkPage = ({data}) => {
                             max={2170}
                             className='mainTable__form__add__input input-short'
                             min={1026}
+                            inputMode="numeric"
                         />
                         <input
                             type="text"
@@ -73,6 +74,7 @@ const ForkPage = ({data}) => {
                             className='mainTable__form__add__input'
                             maxLength={8} // Maksymalnie 8 znaków (w tym "98")
                             minLength={8}
+                            inputMode="numeric"
                         />
                         <button className='mainTable__form__add__button'>DODAJ</button>
                         <input
@@ -104,6 +106,7 @@ const ForkPage = ({data}) => {
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
                                             id={data.id}
+                                            ims={data.ims}
                                         />
                                     );
                                 }
@@ -130,6 +133,7 @@ const ForkPage = ({data}) => {
                                            serialNumber={data.serialNumber}
                                            prio={data.prio}
                                            id={data.id}
+                                           ims={data.ims}
                                        />
                                    );
                                }
@@ -156,6 +160,7 @@ const ForkPage = ({data}) => {
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
                                             id={data.id}
+                                            ims={data.ims}
                                         />
                                     );
                                 }
@@ -178,6 +183,7 @@ const ForkPage = ({data}) => {
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
                                             id={data.id}
+                                            ims={data.ims}
                                         />
                                     );
                                 }
