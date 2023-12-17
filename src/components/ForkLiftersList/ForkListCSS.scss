@@ -106,10 +106,11 @@ li{
         justify-content: space-between;
         background-color: #1F2937;
         border-radius: 5px;
-        width: 95%;
-        margin: 2px auto;
+        width: 100%;
         padding: 5px;
+        margin: 10px auto;
         color: #FBBF24;
+        box-sizing: border-box;
           @media screen and (min-width: 811px){
           width: 100%;
             font-size: 30px;
@@ -160,10 +161,16 @@ li{
     &__icon{
       font-size: 20px;
       color: $secondary-button-color;
+        @media screen and (min-width: 811px){
+          font-size: 35px;
+        }
       &-reversed{
         font-size: 20px;
         color: $secondary-button-color;
         transform: rotate(180deg);
+        @media screen and (min-width: 811px){
+          font-size: 35px;
+        }
       }
     }
   }
