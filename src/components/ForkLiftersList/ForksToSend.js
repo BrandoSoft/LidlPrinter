@@ -4,6 +4,7 @@ import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
 import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 import { MdForklift } from "react-icons/md";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+import { priorityStarGenerator } from "../../utils/PriorityStars";
 
 const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
     return (
@@ -17,6 +18,7 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) 
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
+                        {priorityStarGenerator(prio, id)}
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
