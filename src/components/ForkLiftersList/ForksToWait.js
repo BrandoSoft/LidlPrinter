@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { TiShoppingCart } from "react-icons/ti";
 import { FaBoxArchive } from "react-icons/fa6";
 import { MdForklift } from "react-icons/md";
+import { FaFileArrowDown } from "react-icons/fa6";
 
 import './ForkListCSS.css'
 import { priorityStarGenerator } from "../../utils/PriorityStars";
@@ -11,13 +12,20 @@ import { toggleIMS, updateStatus } from "../../utils/dbOperations";
 
 const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
 
+    const [extendedInfo, setExtendedInfo] = useState('');
+    const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(true)
+
     return (
         <div>
             <li>
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
-                        <p>IMS</p>
+                        <div>IMS</div>
                         <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
+                        <FaFileArrowDown
+                            className={extendedInfoVisibility ? 'forkCard__ims__icon-reversed' :'forkCard__ims__icon'}
+                            onClick={()=> setExtendedInfoVisibility(!extendedInfoVisibility)}
+                        />
                     </div>
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>{shopNumber}</div>
@@ -35,6 +43,9 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) 
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>
+                </div>
+                <div className={extendedInfoVisibility ? 'forkCard__extended' : 'forkCard__extended-closed'}>
+                    {extendedInfo}
                 </div>
             </li>
         </div>

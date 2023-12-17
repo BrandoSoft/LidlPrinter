@@ -48,6 +48,7 @@ ul{
  }
 li{
   display: flex;
+  flex-direction: column;
   margin: 0;
   width: 230px;
   border-radius: 5%;
@@ -136,17 +137,18 @@ li{
   width: 230px;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
     @media screen and (min-width: 811px){
       width: 100%;
       height: 120px;
     }
-
   &__ims{
     display: flex;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 12px;
     width: 20px;
-    justify-content: center;
+    height: 100%;
+    justify-content: space-around;
     align-items: center;
     padding: 1px;
     margin: 0;
@@ -155,6 +157,15 @@ li{
         width: 50px;
         padding: 5px;
       }
+    &__icon{
+      font-size: 20px;
+      color: $secondary-button-color;
+      &-reversed{
+        font-size: 20px;
+        color: $secondary-button-color;
+        transform: rotate(180deg);
+      }
+    }
   }
   &__shop {
     display: flex;
@@ -240,7 +251,20 @@ li{
       }
     }
   }
+  &__extended{
+    display: flex;
+    background-color: #5B6471;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 2px 5px;
+    border-radius: 5%;
+    transform: translateY(-10px);
+    &-closed{
+      height: 0;
+    }
+  }
 }
+
 
 .input-short{
   width: 80px;
