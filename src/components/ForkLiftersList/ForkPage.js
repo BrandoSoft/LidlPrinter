@@ -163,6 +163,7 @@ const ForkPage = ({data}) => {
                                             prio={data.prio}
                                             id={data.id}
                                             ims={data.ims}
+                                            extendedInfo={data.extendedInfo}
                                         />
                                     );
                                 }
@@ -186,6 +187,7 @@ const ForkPage = ({data}) => {
                                             prio={data.prio}
                                             id={data.id}
                                             ims={data.ims}
+                                            extendedInfo={data.extendedInfo}
                                         />
                                     );
                                 }

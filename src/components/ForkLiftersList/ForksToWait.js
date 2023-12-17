@@ -13,7 +13,7 @@ const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims,
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
-    console.log(extendedInfo, userExtendedInfo)
+
     return (
         <div>
             <li>
