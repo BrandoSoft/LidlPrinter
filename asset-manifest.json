@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/LidlPrinter/static/css/main.8824b0d0.css",
-    "main.js": "/LidlPrinter/static/js/main.f2334185.js",
+    "main.css": "/LidlPrinter/static/css/main.c1066775.css",
+    "main.js": "/LidlPrinter/static/js/main.a160e792.js",
     "static/js/787.9bc95ca8.chunk.js": "/LidlPrinter/static/js/787.9bc95ca8.chunk.js",
     "index.html": "/LidlPrinter/index.html",
-    "main.8824b0d0.css.map": "/LidlPrinter/static/css/main.8824b0d0.css.map",
-    "main.f2334185.js.map": "/LidlPrinter/static/js/main.f2334185.js.map",
+    "main.c1066775.css.map": "/LidlPrinter/static/css/main.c1066775.css.map",
+    "main.a160e792.js.map": "/LidlPrinter/static/js/main.a160e792.js.map",
     "787.9bc95ca8.chunk.js.map": "/LidlPrinter/static/js/787.9bc95ca8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8824b0d0.css",
-    "static/js/main.f2334185.js"
+    "static/css/main.c1066775.css",
+    "static/js/main.a160e792.js"
   ]
 }
