@@ -19,9 +19,6 @@ const ForkPage = ({data}) => {
     const [inputSN, setInputSN] = useState('98');
     const [inputReplacement, setInputReplacement] = useState('');
 
-// Create Data
-
-
 
     return (
         <div className='forkContainer'>
@@ -95,7 +92,13 @@ const ForkPage = ({data}) => {
                                     <MdForklift className="mainTable__data__column__title-icon"/>
                                 </div>
                             </li>
-                            {data.map((data, index) => {
+                            {data.sort((a, b) => {
+
+                                const dateA = new Date(a.formatedFDATE.split('-').reverse().join('-'));
+                                const dateB = new Date(b.formatedFDATE.split('-').reverse().join('-'));
+
+                                return dateB - dateA;
+                            }).map((data, index) => {
                                 if (data.status === 'arrived') {
                                     return (
                                         <ForkArrives
@@ -123,7 +126,13 @@ const ForkPage = ({data}) => {
                                    <HiOutlineWrenchScrewdriver className="mainTable__data__column__title-icon"/>
                                </div>
                            </li>
-                           {data.map((data, index) => {
+                           {data.sort((a, b) => {
+                               // Przekształć string w formacie "dd-mm-yyyy" na obiekt daty przed porównaniem
+                               const dateA = new Date(a.formatedFDATE.split('-').reverse().join('-'));
+                               const dateB = new Date(b.formatedFDATE.split('-').reverse().join('-'));
+
+                               return dateB - dateA;
+                           }).map((data, index) => {
                                if (data.status === 'wait') {
                                    return (
                                        <ForksToWait
@@ -151,7 +160,13 @@ const ForkPage = ({data}) => {
                                     <TiShoppingCart className="mainTable__data__column__title-icon"/>
                                 </div>
                             </li>
-                            {data.map((data, index) => {
+                            {data.sort((a, b) => {
+                                // Przekształć string w formacie "dd-mm-yyyy" na obiekt daty przed porównaniem
+                                const dateA = new Date(a.formatedFDATE.split('-').reverse().join('-'));
+                                const dateB = new Date(b.formatedFDATE.split('-').reverse().join('-'));
+
+                                return dateB - dateA;
+                            }).map((data, index) => {
                                 if (data.status === 'done') {
                                     return (
                                         <ForksToSend
@@ -175,7 +190,13 @@ const ForkPage = ({data}) => {
                                     <FaBoxArchive className="mainTable__data__column__title-icon"/>
                                 </div>
                             </li>
-                            {data.map((data, index) => {
+                            {data.sort((a, b) => {
+                                // Przekształć string w formacie "dd-mm-yyyy" na obiekt daty przed porównaniem
+                                const dateA = new Date(a.formatedLeaveDate.split('-').reverse().join('-'));
+                                const dateB = new Date(b.formatedLeaveDate.split('-').reverse().join('-'));
+
+                                return dateB - dateA;
+                            }).map((data, index) => {
                                 if (data.status === 'archived') {
                                     return (
                                         <ForkArchive
