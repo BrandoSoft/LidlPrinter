@@ -4,6 +4,13 @@ import { addDoc, collection, deleteDoc, doc, Timestamp, updateDoc } from "fireba
 import { db } from "../firebase";
 
 export const updateStatus = async (id, forkStatus) =>{
+   if(forkStatus === "archived"){
+       await updateDoc(doc(db, 'forks', id), {
+           status: forkStatus,
+           leaveDate: Timestamp.now()
+       })
+   }
+
     await updateDoc(doc(db, 'forks', id), {
         status: forkStatus
     })
@@ -32,8 +39,9 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
         {
             status: 'arrived',
             fDate: Timestamp.now(),
+            leaveDate: null,
             ims: false,
-            prio: 11,
+            prio: 0,
             serialNumber: inputSN,
             shopNumber: inputShop
         })

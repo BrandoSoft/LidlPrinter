@@ -8,7 +8,7 @@ import { MdForklift } from "react-icons/md";
 import { FaBoxArchive, FaScrewdriverWrench } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 
-const ForkArchive = ({serialNumber,shopNumber, date, prio, id}) => {
+const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
 
     return (
         <div>
@@ -26,7 +26,7 @@ const ForkArchive = ({serialNumber,shopNumber, date, prio, id}) => {
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
                             <div className="forkCard__nav__date__in">P:{date}</div>
-                            <div className="forkCard__nav__date__out">W:{date}</div>
+                            <div className="forkCard__nav__date__out">W:{leaveDate}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /> </div>

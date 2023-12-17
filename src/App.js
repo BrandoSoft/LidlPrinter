@@ -45,7 +45,7 @@ function App() {
             // });
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
-
+                let formatedLeaveDate = ""
                 //upraszczamy
                 //const timestampObject = doc.data().fDate
                 //const milliseconds = timestampObject.seconds * 1000 + Math.round(timestampObject.nanoseconds / 1000000);
@@ -54,7 +54,10 @@ function App() {
 
                 const formatedFDATE = format(new Date(doc.data().fDate.seconds * 1000 + Math.round(doc.data().fDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
 
-                forksArr.push({...doc.data(), formatedFDATE, id: doc.id})
+                if(doc.data().leaveDate !== null){
+                    formatedLeaveDate = format(new Date(doc.data().leaveDate.seconds * 1000 + Math.round(doc.data().leaveDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
+                }
+                forksArr.push({...doc.data(), formatedFDATE, id: doc.id, formatedLeaveDate})
 
             });
             setForksIN(forksArr)

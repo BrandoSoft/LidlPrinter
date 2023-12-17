@@ -9,7 +9,7 @@ import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { updateStatus } from "../../utils/dbOperations";
 
 
-const ForkArrives = ({serialNumber,shopNumber, date, prio, id,}) => {
+const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id,}) => {
 
     return (
         <div>
@@ -27,7 +27,7 @@ const ForkArrives = ({serialNumber,shopNumber, date, prio, id,}) => {
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
                             <div className="forkCard__nav__date__in">P:{date}</div>
-                            <div className="forkCard__nav__date__out">W:{date}</div>
+                            <div className="forkCard__nav__date__out">W:{leaveDate}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /></div>

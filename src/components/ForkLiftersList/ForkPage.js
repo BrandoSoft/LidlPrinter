@@ -15,7 +15,7 @@ import { addForkToDB } from "../../utils/dbOperations";
 const ForkPage = ({data}) => {
 
     const [inputShop, setInputShop] = useState('');
-    const [inputSN, setInputSN] = useState('');
+    const [inputSN, setInputSN] = useState('98');
     const [inputReplacement, setInputReplacement] = useState('');
 
 // Create Data
@@ -55,14 +55,23 @@ const ForkPage = ({data}) => {
                             value={inputShop}
                             onChange={e=>setInputShop(e.target.value)}
                             placeholder='Sklep'
+                            max={2170}
                             className='mainTable__form__add__input input-short'
+                            min={1026}
                         />
                         <input
-                            type="number"
+                            type="text"
                             value={inputSN}
-                            onChange={e=>setInputSN(e.target.value)}
+                            onChange={(e) => {
+                                const inputValue = e.target.value;
+                                if (/^98\d{0,6}$/.test(inputValue)) {
+                                    setInputSN(inputValue);
+                                }
+                            }}
                             placeholder='Numer Seryjny'
                             className='mainTable__form__add__input'
+                            maxLength={8} // Maksymalnie 8 znaków (w tym "98")
+                            minLength={8}
                         />
                         <button className='mainTable__form__add__button'>DODAJ</button>
                         <input
@@ -89,6 +98,7 @@ const ForkPage = ({data}) => {
                                         <ForkArrives
                                             key={index}
                                             date={data.formatedFDATE}
+                                            leaveDate={data.formatedLeaveDate}
                                             shopNumber={data.shopNumber}
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
@@ -114,6 +124,7 @@ const ForkPage = ({data}) => {
                                        <ForksToWait
                                            key={index}
                                            date={data.formatedFDATE}
+                                           leaveDate={data.formatedLeaveDate}
                                            shopNumber={data.shopNumber}
                                            serialNumber={data.serialNumber}
                                            prio={data.prio}
@@ -139,6 +150,7 @@ const ForkPage = ({data}) => {
                                         <ForksToSend
                                             key={index}
                                             date={data.formatedFDATE}
+                                            leaveDate={data.formatedLeaveDate}
                                             shopNumber={data.shopNumber}
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
@@ -160,6 +172,7 @@ const ForkPage = ({data}) => {
                                         <ForkArchive
                                             key={index}
                                             date={data.formatedFDATE}
+                                            leaveDate={data.formatedLeaveDate}
                                             shopNumber={data.shopNumber}
                                             serialNumber={data.serialNumber}
                                             prio={data.prio}
