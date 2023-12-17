@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { MdForklift } from "react-icons/md";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 
 import './ForkListCSS.css'
 import ForkArrives from "./ForkArrives";
@@ -115,7 +116,7 @@ const ForkPage = ({data}) => {
                            <li>
                                <div className="mainTable__data__column__title">
                                    <div className="mainTable__data__column__title-text">Poczekalnia</div>
-                                   <FaScrewdriverWrench className="mainTable__data__column__title-icon"/>
+                                   <HiOutlineWrenchScrewdriver className="mainTable__data__column__title-icon"/>
                                </div>
                            </li>
                            {data.map((data, index) => {

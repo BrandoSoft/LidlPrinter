@@ -3,6 +3,7 @@ import React from 'react';
 import { FaBoxArchive, FaScrewdriverWrench} from "react-icons/fa6";
 import { updateStatus } from "../../utils/dbOperations";
 import { MdForklift } from "react-icons/md";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 
 const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
     return (
@@ -24,7 +25,7 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id}) => {
                         </div>
                         <div className='forkCard__nav__buttons'>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /> </div>
-                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><FaScrewdriverWrench /> </div>
+                               <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><HiOutlineWrenchScrewdriver /> </div>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>

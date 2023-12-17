@@ -120,7 +120,7 @@ li{
   background-color: #1F2937;
   margin: 0 auto;
   border-radius: 5%;
-  height: 65px;
+  height: 70px;
   width: 230px;
   align-items: center;
   justify-content: space-between;
@@ -152,7 +152,7 @@ li{
       color: #5B6471;
     }
     &__prio{
-      color: $secondary-button-color;
+      //color: $secondary-button-color;
       font-size: 12px;
       align-items: center;
       &-minus{
@@ -176,7 +176,8 @@ li{
     padding: 2px;
     &__date{
       font-size: 12px;
-      padding: 2px;
+      padding: 0;
+      overflow: hidden;
       color: #5B6471;
     }
     &__buttons{
