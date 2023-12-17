@@ -152,7 +152,7 @@ li{
       color: #5B6471;
     }
     &__prio{
-      color: #FFF;
+      color: $secondary-button-color;
       font-size: 12px;
       align-items: center;
       &-minus{
@@ -176,7 +176,7 @@ li{
     padding: 2px;
     &__date{
       font-size: 12px;
-      padding: 5px;
+      padding: 2px;
       color: #5B6471;
     }
     &__buttons{
