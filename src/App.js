@@ -46,6 +46,7 @@ function App() {
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 let formatedLeaveDate = ""
+                // let extendedInfo = "coś"
                 //upraszczamy
                 //const timestampObject = doc.data().fDate
                 //const milliseconds = timestampObject.seconds * 1000 + Math.round(timestampObject.nanoseconds / 1000000);
@@ -57,6 +58,10 @@ function App() {
                 if(doc.data().leaveDate !== null){
                     formatedLeaveDate = format(new Date(doc.data().leaveDate.seconds * 1000 + Math.round(doc.data().leaveDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
                 }
+                // if(doc.data.extendedInfo) {
+                //     extendedInfo = doc.data.extendedInfo
+                // }
+
                 forksArr.push({...doc.data(), formatedFDATE, id: doc.id, formatedLeaveDate})
 
             });

@@ -253,6 +253,7 @@ li{
   }
   &__extended{
     display: flex;
+    flex-direction: row;
     background-color: #5B6471;
     width: 90%;
     margin: 0 auto;
@@ -260,7 +261,13 @@ li{
     border-radius: 5%;
     transform: translateY(-10px);
     &-closed{
-      height: 0;
+      display: none;
+    }
+    &__icon{
+      align-self: flex-end;
+      font-size: 20px;
+      margin: 5px 10px;
+      color: $main-button-color;
     }
   }
 }

@@ -28,6 +28,14 @@ export const updatePrio = async (id, updatedPrio) =>{
     })
 }
 
+export const updateExtendedInfo = async (e, id, message) =>{
+    e.preventDefault(e)
+
+   await updateDoc(doc(db,'forks', id), {
+       extendedInfo: message
+    })
+}
+
 export const addForkToDB = async (e,inputSN, inputShop) => {
     e.preventDefault(e)
 
@@ -43,7 +51,8 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
             ims: false,
             prio: 0,
             serialNumber: inputSN,
-            shopNumber: inputShop
+            shopNumber: inputShop,
+            extendedInfo:'',
         })
 }
 

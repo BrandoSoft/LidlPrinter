@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { TiShoppingCart } from "react-icons/ti";
-import { FaBoxArchive } from "react-icons/fa6";
+import { FaBoxArchive, FaFileArrowDown, FaPencil } from "react-icons/fa6";
 import { MdForklift } from "react-icons/md";
-import { FaFileArrowDown } from "react-icons/fa6";
-
-import './ForkListCSS.css'
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-import { toggleIMS, updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
+import './ForkListCSS.css';
 
+const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo }) => {
+    const [userExtendedInfo, setUserExtendedInfo] = useState('');
+    const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
 
-const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) => {
-
-    const [extendedInfo, setExtendedInfo] = useState('');
-    const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(true)
-
+    useEffect(() => {
+        setUserExtendedInfo(extendedInfo);
+    }, [extendedInfo]);
+    console.log(extendedInfo, userExtendedInfo)
     return (
         <div>
             <li>
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
                         <div>IMS</div>
-                        <input type='checkbox' onChange={() =>toggleIMS(id, ims)} checked={ims? 'checked' : ''}/>
+                        <input
+                            type='checkbox'
+                            onChange={() => toggleIMS(id, ims)}
+                            checked={ims ? 'checked' : ''}
+                        />
                         <FaFileArrowDown
-                            className={extendedInfoVisibility ? 'forkCard__ims__icon-reversed' :'forkCard__ims__icon'}
-                            onClick={()=> setExtendedInfoVisibility(!extendedInfoVisibility)}
+                            className={extendedInfoVisibility ? 'forkCard__ims__icon-reversed' : 'forkCard__ims__icon'}
+                            onClick={() => setExtendedInfoVisibility(!extendedInfoVisibility)}
                         />
                     </div>
                     <div className="forkCard__shop">
@@ -38,14 +41,30 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims}) 
                             <div className="forkCard__nav__date__out">W:{leaveDate}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
-                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /></div>
-                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "done")}><TiShoppingCart /> </div>
-                            <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
+                            <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "arrived")}><MdForklift /></div>
+                            <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "done")}><TiShoppingCart /> </div>
+                            <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "archived")}><FaBoxArchive /> </div>
                         </div>
                     </div>
                 </div>
                 <div className={extendedInfoVisibility ? 'forkCard__extended' : 'forkCard__extended-closed'}>
-                    {extendedInfo}
+                    {extendedInfo !== '' ?
+                        <>
+                            <FaPencil className="forkCard__extended__icon" onClick={(e)=>updateExtendedInfo(e,id, '')}/>
+                            {userExtendedInfo}
+                        </>
+                        :
+                        <>
+                            <form onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}>
+                                <input
+                                    type="text"
+                                    value={userExtendedInfo}
+                                    placeholder="dodatkowe informacje"
+                                    onChange={(e) => setUserExtendedInfo(e.target.value)}
+                                />
+                                <button type="submit"> + </button>
+                            </form>
+                        </>}
                 </div>
             </li>
         </div>
