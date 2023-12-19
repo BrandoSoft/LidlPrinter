@@ -10,6 +10,13 @@ export const updateStatus = async (id, forkStatus) =>{
            leaveDate: Timestamp.now()
        })
    }
+    if(forkStatus === "arrivedFromComing") {
+        await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id), {
+            status: "arrived",
+            fDate: Timestamp.now(),
+                })
+        return ''
+    }
 
     await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id), {
         status: forkStatus
@@ -49,6 +56,25 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
             fDate: Timestamp.now(),
             leaveDate: null,
             ims: false,
+            prio: 0,
+            serialNumber: inputSN,
+            shopNumber: inputShop,
+            extendedInfo:'',
+        })
+}
+export const addForkToDBComing = async (e,inputSN, inputShop) => {
+    e.preventDefault(e)
+
+    if (inputSN === '' || inputShop === '') {
+        alert('Wprowadź numer seryjny i numer sklepu');
+        return
+    }
+    await addDoc(collection(db, process.env.REACT_APP_FORKS_DB),
+        {
+            status: 'coming',
+            fDate: Timestamp.now(),
+            leaveDate: null,
+            ims: true,
             prio: 0,
             serialNumber: inputSN,
             shopNumber: inputShop,

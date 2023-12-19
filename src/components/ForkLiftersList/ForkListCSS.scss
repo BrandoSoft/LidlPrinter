@@ -19,13 +19,17 @@
   margin: 5px auto;
   padding: 5px 10px;
   &__button{
-   margin: 10px 5px 0 5px;
+    margin: 10px 5px 0 5px;
     width: 39px;
     background-color: #374151;
     color: #D1D5DB;
     font-weight: 900;
     border: 2px solid #D1D5DB;
     border-radius: 10px;
+    &-green{
+      margin-left: 10px;
+      border: 2px solid $main-button-color;
+    }
   }
   &__ims{
     margin: 10px 5px 0 5px;
@@ -35,6 +39,9 @@
     font-weight: 900;
     border: 2px solid #D1D5DB;
     border-radius: 10px;
+  }
+  &-closed{
+      display: none;
   }
 }
 
@@ -82,9 +89,9 @@ li{
       margin: 0 20px;
       font-size: 16px;
       cursor: pointer;
-      &:hover {
-        background-color: #28a745;
-      }
+        &:hover {
+          background-color: #28a745;
+        }
     }
 
   }
@@ -185,11 +192,22 @@ li{
       @media screen and (min-width: 811px) {
         width: 180px;
       }
+      &-coming{
+        align-items: center;
+        width: 200px;
+      }
     &__number{
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 900;
       font-size: 25px;
       @media screen and (min-width: 811px){
         font-size: 45px;
+      }
+      &-coming{
+
+        width: 100%;
       }
     }
     &__SN{
@@ -318,3 +336,4 @@ li{
 .input-short{
   width: 80px;
 }
+
