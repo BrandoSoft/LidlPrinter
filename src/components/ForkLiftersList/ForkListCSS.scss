@@ -267,18 +267,53 @@ li{
     padding: 10px 2px 5px;
     border-radius: 5%;
     transform: translateY(-10px);
+    justify-content: space-around;
+    align-items: center;
+      @media screen and (min-width: 811px){
+        font-size: 20px;
+      }
     &-closed{
       display: none;
     }
     &__icon{
-      align-self: flex-end;
-      font-size: 20px;
-      margin: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      font-size: 15px;
       color: $main-button-color;
+        @media screen and (min-width: 811px){
+          width: 15%;
+          height: 15%;
+          font-size: 35px;
+        }
+    }
+    &__message{
+        width: 75%;
+        padding: 10px;
+      @media screen and (min-width: 811px){
+        font-size: 25px;
+       }
+    }
+    &__form{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 10px 2px;
+      &__input{
+        font-size: 12px;
+        padding: 5px 10px;
+        @media screen and (min-width: 811px){
+          font-size: 25px;
+        }
+      }
     }
   }
 }
-
+.trash{
+  color: red;
+}
 
 .input-short{
   width: 80px;

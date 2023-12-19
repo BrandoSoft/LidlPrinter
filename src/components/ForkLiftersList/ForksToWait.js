@@ -50,19 +50,31 @@ const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims,
                 <div className={extendedInfoVisibility ? 'forkCard__extended' : 'forkCard__extended-closed'}>
                     {extendedInfo !== '' ?
                         <>
-                            <FaPencil className="forkCard__extended__icon" onClick={(e)=>updateExtendedInfo(e,id, '')}/>
-                            {userExtendedInfo}
+                            <div className="forkCard__extended__message">
+                                {userExtendedInfo}
+                            </div>
+                            <div  className="forkCard__extended__icon">
+                                <FaPencil onClick={(e)=>updateExtendedInfo(e,id, '')}/>
+                            </div>
+
                         </>
                         :
                         <>
-                            <form onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}>
+                            <form
+                                onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}
+                                className="forkCard__extended__form"
+                            >
                                 <input
+                                    className="forkCard__extended__form__input"
                                     type="text"
                                     value={userExtendedInfo}
-                                    placeholder="dodatkowe informacje"
+                                    placeholder="dodatkowe info"
                                     onChange={(e) => setUserExtendedInfo(e.target.value)}
                                 />
-                                <button type="submit"> + </button>
+                                <button
+                                    type="submit"
+                                    className="forkCard__extended__form__button"
+                                > + </button>
                             </form>
                         </>}
                 </div>

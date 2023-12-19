@@ -33,7 +33,10 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                         />
                     </div>
                     <div className="forkCard__shop">
-                        <div className='forkCard__shop__number'>{shopNumber}</div>
+                        <div className='forkCard__shop__number'>
+                            {shopNumber}
+                            <button className="forkList__button">Z1</button>
+                        </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
                     </div>

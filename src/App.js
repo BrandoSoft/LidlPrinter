@@ -36,7 +36,7 @@ function App() {
     };
 // Read data from Firebase
     useEffect(()=>{
-        const q = query(collection(db, 'forks'))
+        const q = query(collection(db, process.env.REACT_APP_FORKS_DB))
 
         const unsubscribe = onSnapshot(q, (querySnapshot)=>{
             let forksArr = []

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
+import { deleteFORK, toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 
 import { MdForklift } from "react-icons/md";
 import { FaBoxArchive, FaFileArrowDown, FaPencil, FaScrewdriverWrench } from "react-icons/fa6";
+import { FaTrashAlt } from "react-icons/fa";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
 
@@ -70,6 +71,10 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                                 <button type="submit"> + </button>
                             </form>
                         </>}
+                    <FaTrashAlt
+                        onClick={()=>deleteFORK(id)}
+                        className="forkCard__extended__icon trash"
+                    />
                 </div>
             </li>
         </div>
