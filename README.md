@@ -34,6 +34,8 @@ npm install
 - możliwość edycji numeru sklepu
 - możliwość edycji numeru seryjnego
 - możliwość edycji numeru wózka zastępczego
+- zmienić ikonki w opcjach
+- ~~wyrównać ikonki w opcjach~~
 
 
 

@@ -23,17 +23,29 @@
   &__option{
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40%;
+    justify-content: flex-start;
+    width: 45%;
     height: 40%;
     cursor: pointer;
     &__icon{
+      display: flex;
+      align-items: center;
       font-size: 100%;
       padding: 0 5px;
       color: $secondary-button-color;
+      height: 100%;
+      @media screen and (min-width: 811px){
+        font-size: 150%;
+      }
     }
     &__title{
+      display: flex;
+      align-items: center;
+      height: 100%;
       font-size: 70%;
+      @media screen and (min-width: 811px){
+        font-size: 110%;
+    }
     }
   }
   &__return{
@@ -51,4 +63,12 @@
 
 .red_icon{
   color: red;
+}
+
+.replacementListModal{
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: lightgoldenrodyellow;
+  border-radius: 10px;
 }

@@ -8,7 +8,7 @@ import { FaFileArrowDown, FaPencil } from "react-icons/fa6";
 import { MdForklift } from "react-icons/md";
 import { SlOptionsVertical } from "react-icons/sl";
 import OptionsModal from "../modals/OptionsModal";
-const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
+const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -32,7 +32,9 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                             <OptionsModal
                                 toggleVisible={optionsModalVisibilityHandler}
                                 forkId={id}
+                                replacement={replacement}
                                 replacementId={replacementId}
+                                replacementList={replacementList}
                             />
                             :
                             null

@@ -188,6 +188,7 @@ const ForkPage = ({data, replacementList}) => {
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
+                                            replacementList={replacementList}
                                         />
                                     );
                                 }

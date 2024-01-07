@@ -121,3 +121,22 @@ export const returnReplacementForkToAvailable = async (replacementId, forkId) =>
     })
 
 }
+
+
+// Change replacement fork in forkCard
+
+export const swapReplacementFork = async (originalReplacementId, newReplacementId, originalForkId, newReplacementName) =>{
+    // change old replacement to true (is avaible)
+    await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,originalReplacementId),{
+        isTaken: false
+    })
+    // change new replacement to false (is not avaible)
+    await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,newReplacementId),{
+        isTaken: true
+    })
+    // change replacementName in fork list
+    await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, originalForkId),{
+        replacement: newReplacementName,
+        replacementId: newReplacementId
+    })
+}
