@@ -39,14 +39,14 @@ const OptionsModal = ({toggleVisible, forkId, replacementId, replacementList, re
                 </div>
                 <div className="modal__option" onClick={()=>setReplacementListModalVisible(true)}>
                     <div className="modal__option__icon">
-                        <FaTrashAlt onClick={()=>deleteFORK(forkId, replacementId)}/>
+                        <FaTrashAlt/>
                     </div>
                     <div className="modal__option__title">Zmień zastępczy</div>
                 </div>
-                <div className="modal__option" >
+                <div className="modal__option" onClick={()=>deleteFORK(forkId, replacementId)}>
                     <div className="modal__option__icon">
                         <FaTrashAlt/>
-                    </div>
+                    </div >
                     <div className="modal__option__title">Usuń wózek </div>
                 </div>
             </div>

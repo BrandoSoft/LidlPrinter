@@ -27,8 +27,8 @@
     border: 2px solid #D1D5DB;
     border-radius: 10px;
     &-green{
-      margin-left: 10px;
       border: 2px solid $main-button-color;
+      margin: 0 10px;
     }
   }
   &__ims{
@@ -213,11 +213,11 @@ li{
       justify-content: center;
       font-weight: 900;
       font-size: 25px;
+      height: 100%;
       @media screen and (min-width: 811px){
         font-size: 45px;
       }
       &-coming{
-
         width: 100%;
       }
     }
@@ -260,6 +260,7 @@ li{
     align-items: flex-start;
     justify-content: space-around;
     padding: 2px;
+    background-color: #fff;
     @media screen and (min-width: 811px){
         width: 150px;
     }

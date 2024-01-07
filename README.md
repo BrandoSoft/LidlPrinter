@@ -32,10 +32,11 @@ npm install
 - Liczniki ile wózków zrobionych, ile do zrobienia
 - przemodelowanie archiwum, rozbudowa z możliwością filtrowania itp.
 - możliwość edycji numeru sklepu
-- możliwość edycji numeru seryjnego
+- ~~możliwość edycji numeru seryjnego~~
 - możliwość edycji numeru wózka zastępczego
 - zmienić ikonki w opcjach
 - ~~wyrównać ikonki w opcjach~~
+- naprawić błędy w zmianie wóżków w opcjach
 
 
 
@@ -45,3 +46,4 @@ npm install
 - v 0.1.1 - poprawa css by nie drukowało na 2 stronach, dodanie numerów seryjnych
 - v 0.1.2 - przygotowanie danych pod nowe sklepy, poprawki w css
 - v 0.2.0 - działająca rozbudowana podstawowa funkcjonalność
+- v 0.2.1 - możliwa edycja numeru zastępczego wózka.

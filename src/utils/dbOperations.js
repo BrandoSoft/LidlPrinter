@@ -61,6 +61,8 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
             serialNumber: inputSN,
             shopNumber: inputShop,
             extendedInfo:'',
+            replacement: '',
+            replacementId: ''
         })
 }
 export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNumber) => {
