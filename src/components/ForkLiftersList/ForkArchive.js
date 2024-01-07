@@ -9,20 +9,38 @@ import { FaBoxArchive, FaFileArrowDown, FaPencil, FaScrewdriverWrench } from "re
 import { FaTrashAlt } from "react-icons/fa";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
+import Modal from "../modals/Modal";
+import ReplacementModal from "../modals/ReplacementModal";
 
-const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo}) => {
+const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
+    const [modalVisibility, setModalVisibility] = useState(false);
 
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
 
+    const replacementModalVisibilityHandler = ()=>{
+        setModalVisibility(!modalVisibility)
+    }
+
     return (
         <div>
             <li>
                 <div className='forkCard'>
+                    {
+                        modalVisibility?
+                        <ReplacementModal
+                            replacement={replacement}
+                            replacementId={replacementId}
+                            forkId={id}
+                            modalVisibilityHandler={replacementModalVisibilityHandler}
+                        />
+                        :
+                        null
+                    }
                     <div className='forkCard__ims'>
                         <div>IMS</div>
                         <input
@@ -36,7 +54,17 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                         />
                     </div>
                     <div className="forkCard__shop">
-                        <div className='forkCard__shop__number'>{shopNumber}</div>
+                        <div className='forkCard__shop__number forkCard__shop__number-coming '>
+                            {shopNumber}
+                            {replacement &&
+                                <button
+                                    className="forkList__button forkList__button-green"
+                                    onClick={()=> replacementModalVisibilityHandler()}
+                                >
+                                    {replacement}
+                                </button>
+                            }
+                        </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
                     </div>

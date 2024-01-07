@@ -3,7 +3,7 @@
 import { addDoc, collection, deleteDoc, doc, Timestamp, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const updateStatus = async (id, forkStatus) =>{
+export const updateStatus = async (id, forkStatus, replacement) =>{
    if(forkStatus === "archived"){
        await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id), {
            status: forkStatus,
@@ -14,6 +14,7 @@ export const updateStatus = async (id, forkStatus) =>{
         await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id), {
             status: "arrived",
             fDate: Timestamp.now(),
+            replacement: replacement
                 })
         return ''
     }
@@ -62,7 +63,7 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
             extendedInfo:'',
         })
 }
-export const addForkToDBComing = async (e,inputSN, inputShop) => {
+export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNumber) => {
     e.preventDefault(e)
 
     if (inputSN === '' || inputShop === '') {
@@ -79,7 +80,16 @@ export const addForkToDBComing = async (e,inputSN, inputShop) => {
             serialNumber: inputSN,
             shopNumber: inputShop,
             extendedInfo:'',
+            replacement: replacementNumber ? replacementNumber : '',
+            replacementId: rid
         })
+    if(rid){
+        await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB, rid),{
+            isTaken: true
+        })
+    }
+
+
 }
 
 // Delete Data from Firebase
@@ -91,4 +101,17 @@ export const toggleIMS = async (id, status)=>{
     await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id),{
         ims: !status
     })
+}
+
+
+// Move Returned Replacement fork to available
+
+export const returnReplacementForkToAvailable = async (replacementId, forkId) =>{
+    await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,replacementId),{
+        isTaken: false
+    })
+    await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, forkId),{
+        replacement: ""
+    })
+
 }

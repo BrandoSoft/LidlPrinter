@@ -2,10 +2,11 @@ import React from 'react';
 
 import './ForkListCSS.css'
 import ForkPage from "./ForkPage";
-const ForkLifterList = ({data}) => {
+const ForkLifterList = ({data, replacementList}) => {
     return (
             <ForkPage
                 data={data}
+                replacementList={replacementList}
             />
     );
 };

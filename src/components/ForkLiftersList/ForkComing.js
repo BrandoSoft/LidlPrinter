@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 
 import './ForkListCSS.css'
-import { updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
+import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { FaFileArrowDown, FaPencil } from "react-icons/fa6";
 import { MdForklift } from "react-icons/md";
-const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo}) => {
+const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -15,11 +15,19 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
 
+    console.log(replacement)
+
     return (
         <div>
             <li>
                 <div className='forkCard'>
                     <div className='forkCard__ims'>
+                        <div>IMS</div>
+                        <input
+                            type='checkbox'
+                            onChange={() =>toggleIMS(id, ims)}
+                            checked={ims? 'checked' : ''}
+                        />
                         <FaFileArrowDown
                             className={extendedInfoVisibility ? 'forkCard__ims__icon-reversed' : 'forkCard__ims__icon'}
                             onClick={() => setExtendedInfoVisibility(!extendedInfoVisibility)}
@@ -28,7 +36,7 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                     <div className="forkCard__shop forkCard__shop-coming">
                         <div className='forkCard__shop__number forkCard__shop__number-coming '>
                             {shopNumber}
-                            <button className="forkList__button forkList__button-green">Z1</button>
+                            {replacement &&  <button className="forkList__button forkList__button-green">{replacement}</button>}
                         </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
@@ -36,7 +44,7 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__buttons'>
 
-                            <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "arrivedFromComing")}><MdForklift /></div>
+                            <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "arrivedFromComing", replacement)}><MdForklift /></div>
                         </div>
                     </div>
                 </div>

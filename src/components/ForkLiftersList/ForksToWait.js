@@ -6,7 +6,7 @@ import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 import './ForkListCSS.css';
 
-const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo }) => {
+const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement }) => {
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
 
@@ -31,7 +31,10 @@ const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims,
                         />
                     </div>
                     <div className="forkCard__shop">
-                        <div className='forkCard__shop__number'>{shopNumber}</div>
+                        <div className='forkCard__shop__number'>
+                            {shopNumber}
+                            {replacement &&  <button className="forkList__button forkList__button-green">{replacement}</button>}
+                        </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
                     </div>

@@ -15,6 +15,25 @@ function App() {
     const [isShopListVisible, setShopListVisible] = useState(false);
     const [isForkLiftersListVisible, setForkLiftersList] = useState(true);
     const [forksIN, setForksIN]= useState([])
+    const [replacement,  setReplacement] = useState([])
+
+    useEffect(() => {
+        const q = query(collection(db, process.env.REACT_APP_REPLACEMENT_FORK_DB))
+
+        const unsubscribe = onSnapshot(q, (querySnapshot)=>{
+            let replacementArr = []
+            // querySnapshot.forEach((doc) => {
+            //     forksArr.push({...doc.data(), id: doc.id})
+            // });
+            querySnapshot.forEach((doc) => {
+
+                replacementArr.push({...doc.data(), rId :doc.id})
+
+            });
+            setReplacement(replacementArr)
+        })
+        return () => unsubscribe();
+    }, []);
 
     useEffect(() => {
         if (selectedInfo) {
@@ -40,27 +59,16 @@ function App() {
 
         const unsubscribe = onSnapshot(q, (querySnapshot)=>{
             let forksArr = []
-            // querySnapshot.forEach((doc) => {
-            //     forksArr.push({...doc.data(), id: doc.id})
-            // });
+
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 let formatedLeaveDate = ""
-                // let extendedInfo = "coś"
-                //upraszczamy
-                //const timestampObject = doc.data().fDate
-                //const milliseconds = timestampObject.seconds * 1000 + Math.round(timestampObject.nanoseconds / 1000000);
-                //const fDate = new Date(milliseconds)
-                //nowa wersja:
 
                 const formatedFDATE = format(new Date(doc.data().fDate.seconds * 1000 + Math.round(doc.data().fDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
 
                 if(doc.data().leaveDate !== null){
                     formatedLeaveDate = format(new Date(doc.data().leaveDate.seconds * 1000 + Math.round(doc.data().leaveDate.nanoseconds / 1000000)), 'dd-MM-yyyy');
                 }
-                // if(doc.data.extendedInfo) {
-                //     extendedInfo = doc.data.extendedInfo
-                // }
 
                 forksArr.push({...doc.data(), formatedFDATE, id: doc.id, formatedLeaveDate})
 
@@ -69,7 +77,6 @@ function App() {
         })
         return () => unsubscribe();
     }, [])
-
     return (
         <div>
             {selectedInfo && <PrintPage info={selectedInfo} />}
@@ -90,6 +97,7 @@ function App() {
                 {isForkLiftersListVisible &&
                     <ForkLifterList
                         data={forksIN}
+                        replacementList={replacement}
                     />
                 }
             </div>

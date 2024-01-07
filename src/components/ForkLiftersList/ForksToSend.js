@@ -6,7 +6,7 @@ import { MdForklift } from "react-icons/md";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
 
-const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -32,7 +32,10 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                         />
                     </div>
                     <div className="forkCard__shop">
-                        <div className='forkCard__shop__number'>{shopNumber}</div>
+                        <div className='forkCard__shop__number forkCard__shop__number-coming '>
+                            {shopNumber}
+                            {replacement &&  <button className="forkList__button forkList__button-green">{replacement}</button>}
+                        </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
                     </div>

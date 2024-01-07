@@ -14,8 +14,10 @@ import ForkArchive from "./ForkArchive";
 import ForksToWait from "./ForksToWait";
 import { addForkToDB, addForkToDBComing } from "../../utils/dbOperations";
 import ForkComing from "./ForkComing";
+import { log } from "util";
+import { da } from "date-fns/locale";
 
-const ForkPage = ({data}) => {
+const ForkPage = ({data, replacementList}) => {
 
     const [inputShop, setInputShop] = useState('');
     const [inputSN, setInputSN] = useState('98');
@@ -23,36 +25,47 @@ const ForkPage = ({data}) => {
     const [inputSNComing, setInputSNComing] = useState('98');
     const [inputReplacement, setInputReplacement] = useState('');
     const [replacementNumber, setReplacementNumber] = useState(0)
+    const [rId, setRId] = useState()
 
-    const replaceHandler = (z) =>{
-        if(z === replacementNumber){
-            setReplacementNumber(0)
-        }else{
-            setReplacementNumber(z)
-        }
+    const replaceHandler = (e, rid) =>{
+        setReplacementNumber(e)
+        setRId(rid)
+    }
+
+    const handleAddForkToDBComing = (e) => {
+        addForkToDBComing(e, inputSNComing, inputShopComing, rId, replacementNumber)
+        setInputSNComing("98");
+        setInputShopComing("");
+        setReplacementNumber("");
     }
 
 
     return (
         <div className='forkContainer'>
             <div className="forkList">Lista zastępczych w magazynie:<br/>
-                <button className="forkList__button" onClick={()=> replaceHandler(1)}>Z1</button>
-                <button className="forkList__button" onClick={()=> replaceHandler(2)}>Z2</button>
-                <button className="forkList__button">Z3</button>
-                <button className="forkList__button">Z4</button>
-                <button className="forkList__button">Z5</button>
-                <button className="forkList__button">Z6</button>
-                <button className="forkList__button">Z7</button>
-                <button className="forkList__button">Z8</button>
-                <button className="forkList__button">Z9</button>
-                <button className="forkList__button">Z10</button>
-                <button className="forkList__button">Z11</button>
-                <button className="forkList__button">Z12</button>
-                <button className="forkList__button">Z13</button>
-                <button className="forkList__button">Z14</button>
-                <div className={replacementNumber > 0 ? "mainTable__form forkList" : "forkList-closed"}>
-                    <button className="forkList__button">{replacementNumber}</button>
-                    <form className='mainTable__form__add' onSubmit={e => addForkToDBComing(e, inputSNComing, inputShopComing)}>
+                {replacementList.sort((a, b) => {
+                    const orderA = parseInt(a.order);
+                    const orderB = parseInt(b.order);
+                    if (orderA < orderB) {
+                        return -1;
+                    }
+                    if (orderA > orderB) {
+                        return 1;
+                    }
+                    return 0;
+                }).map((e, index) => {
+                    if (!e.isTaken) {
+
+                        return (
+                            <button key={index} className="forkList__button" onClick={()=> replaceHandler(e.name, e.rId)}>{e.name}</button>
+                        );
+                    }
+                    return null;
+                })}
+
+                <div className={replacementNumber != "" ? "mainTable__form forkList" : "forkList-closed"}>
+                    <button className="forkList__button" onClick={()=> replaceHandler("")}>{replacementNumber}</button>
+                    <form className='mainTable__form__add' onSubmit={e => handleAddForkToDBComing(e)}>
                         <input
                             type="number"
                             value={inputShopComing}
@@ -89,13 +102,6 @@ const ForkPage = ({data}) => {
                     </form>
                 </div>
             </div>
-            {/*<div className="forkList">Mamy ims i czekamy na:<br/>*/}
-            {/*    <button className="forkList__ims">3322</button>*/}
-            {/*    <button className="forkList__ims">1254</button>*/}
-            {/*    <button className="forkList__ims">1111</button>*/}
-            {/*    <button className="forkList__ims">6677</button>*/}
-
-            {/*</div>*/}
             <div className='mainTable'>
                 <div className="mainTable__form forkList">
                     <form className='mainTable__form__add' onSubmit={e => addForkToDB(e, inputSN, inputShop)}>
@@ -124,9 +130,39 @@ const ForkPage = ({data}) => {
                             minLength={8}
                             inputMode="numeric"
                         />
-                        <button className='mainTable__form__add__button'>DODAJ WÓZEK W MAGAZYNIE</button>
-
+                        <button className='mainTable__form__add__button'>DODAJ WÓZEK Z MAGAZYNU</button>
                         </form>
+                </div>
+                <div className="mainTable__form forkList">
+                    <form className='mainTable__form__add' onSubmit={e => addForkToDBComing(e, inputSN, inputShop)}>
+                        <input
+                            type="number"
+                            value={inputShop}
+                            onChange={e=>setInputShop(e.target.value)}
+                            placeholder='Sklep'
+                            max={2170}
+                            className='mainTable__form__add__input input-short'
+                            min={1026}
+                            inputMode="numeric"
+                        />
+                        <input
+                            type="text"
+                            value={inputSN}
+                            onChange={(e) => {
+                                const inputValue = e.target.value;
+                                if (/^98\d{0,6}$/.test(inputValue)) {
+                                    setInputSN(inputValue);
+                                }
+                            }}
+                            placeholder='Numer Seryjny'
+                            className='mainTable__form__add__input'
+                            maxLength={8} // Maksymalnie 8 znaków (w tym "98")
+                            minLength={8}
+                            inputMode="numeric"
+                        />
+                        <button className='mainTable__form__add__button'>DODAJ WÓZEK Z IMS</button>
+                    </form>
+
                 </div>
                 <div className="mainTable__data">
                     <div className="mainTable__data__column">
@@ -156,6 +192,7 @@ const ForkPage = ({data}) => {
                                             id={data.id}
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
+                                            replacement={data.replacement}
                                         />
                                     );
                                 }
@@ -186,6 +223,7 @@ const ForkPage = ({data}) => {
                                             id={data.id}
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
+                                            replacement={data.replacement}
                                         />
                                     );
                                 }
@@ -220,6 +258,7 @@ const ForkPage = ({data}) => {
                                            id={data.id}
                                            ims={data.ims}
                                            extendedInfo={data.extendedInfo}
+                                           replacement={data.replacement}
                                        />
                                    );
                                }
@@ -254,6 +293,7 @@ const ForkPage = ({data}) => {
                                             id={data.id}
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
+                                            replacement={data.replacement}
                                         />
                                     );
                                 }
@@ -284,6 +324,8 @@ const ForkPage = ({data}) => {
                                             id={data.id}
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
+                                            replacement={data.replacement}
+                                            replacementId={data.replacementId}
                                         />
                                     );
                                 }

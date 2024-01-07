@@ -4,11 +4,13 @@ import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaTruckArrowRight } from "react-icons/fa6";
 
+
 import './ForkListCSS.css'
 import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { FaFileArrowDown, FaPencil } from "react-icons/fa6";
-const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo}) => {
+import Modal from "../modals/Modal";
+const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -21,6 +23,7 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
         <div>
             <li>
                 <div className='forkCard'>
+
                     <div className='forkCard__ims'>
                         <div>IMS</div>
                         <input
@@ -36,7 +39,7 @@ const ForkArrives = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                     <div className="forkCard__shop">
                         <div className='forkCard__shop__number'>
                             {shopNumber}
-                            <button className="forkList__button">Z1</button>
+                            {replacement &&  <button className="forkList__button forkList__button-green">{replacement}</button>}
                         </div>
                         <div className='forkCard__shop__SN'>{serialNumber}</div>
                         {priorityStarGenerator(prio, id)}
