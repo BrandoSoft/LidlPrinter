@@ -40,6 +40,7 @@ const ForkPage = ({data, replacementList}) => {
     }
 
 
+
     return (
         <div className='forkContainer'>
             <div className="forkList">Lista zastępczych w magazynie:<br/>
@@ -91,14 +92,7 @@ const ForkPage = ({data, replacementList}) => {
                             minLength={8}
                             inputMode="numeric"
                         />
-                        <button className='mainTable__form__add__button'>DODAJ WÓZEK Z IMS</button>
-                        {/*<input*/}
-                        {/*    type="number"*/}
-                        {/*    value={inputReplacement}*/}
-                        {/*    onChange={e=>setInputReplacement(e.target.value)}*/}
-                        {/*    placeholder='Zastępczy'*/}
-                        {/*    className='mainTable__form__add__input input-short'*/}
-                        {/*/>*/}
+                        <button className='mainTable__form__add__button'>Wyślij wózek</button>
                     </form>
                 </div>
             </div>
@@ -193,6 +187,7 @@ const ForkPage = ({data, replacementList}) => {
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
+                                            replacementId={data.replacementId}
                                         />
                                     );
                                 }
@@ -224,6 +219,7 @@ const ForkPage = ({data, replacementList}) => {
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
+                                            replacementId={data.replacementId}
                                         />
                                     );
                                 }
@@ -259,6 +255,7 @@ const ForkPage = ({data, replacementList}) => {
                                            ims={data.ims}
                                            extendedInfo={data.extendedInfo}
                                            replacement={data.replacement}
+                                           replacementId={data.replacementId}
                                        />
                                    );
                                }
@@ -294,6 +291,7 @@ const ForkPage = ({data, replacementList}) => {
                                             ims={data.ims}
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
+                                            replacementId={data.replacementId}
                                         />
                                     );
                                 }

@@ -6,21 +6,36 @@ import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOpera
 import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { FaFileArrowDown, FaPencil } from "react-icons/fa6";
 import { MdForklift } from "react-icons/md";
-const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement}) => {
+import { SlOptionsVertical } from "react-icons/sl";
+import OptionsModal from "../modals/OptionsModal";
+const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
+    const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
 
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
 
-    console.log(replacement)
+    const optionsModalVisibilityHandler = ()=>{
+        setOptionsModalVisibility(!optionsModalVisibility)
+    }
 
     return (
         <div>
             <li>
                 <div className='forkCard'>
+                    {
+                        optionsModalVisibility?
+                            <OptionsModal
+                                toggleVisible={optionsModalVisibilityHandler}
+                                forkId={id}
+                                replacementId={replacementId}
+                            />
+                            :
+                            null
+                    }
                     <div className='forkCard__ims'>
                         <div>IMS</div>
                         <input
@@ -43,27 +58,39 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__buttons'>
-
                             <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "arrivedFromComing", replacement)}><MdForklift /></div>
+                            <div className='forkCard__nav__buttons__button trash' onClick={()=>optionsModalVisibilityHandler()}><SlOptionsVertical /> </div>
                         </div>
                     </div>
                 </div>
                 <div className={extendedInfoVisibility ? 'forkCard__extended' : 'forkCard__extended-closed'}>
                     {extendedInfo !== '' ?
                         <>
-                            <FaPencil className="forkCard__extended__icon" onClick={(e)=>updateExtendedInfo(e,id, '')}/>
-                            {userExtendedInfo}
+                            <div className="forkCard__extended__message">
+                                {userExtendedInfo}
+                            </div>
+                            <div  className="forkCard__extended__icon">
+                                <FaPencil onClick={(e)=>updateExtendedInfo(e,id, '')}/>
+                            </div>
+
                         </>
                         :
                         <>
-                            <form onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}>
+                            <form
+                                onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}
+                                className="forkCard__extended__form"
+                            >
                                 <input
+                                    className="forkCard__extended__form__input"
                                     type="text"
                                     value={userExtendedInfo}
-                                    placeholder="dodatkowe informacje"
+                                    placeholder="dodatkowe info"
                                     onChange={(e) => setUserExtendedInfo(e.target.value)}
                                 />
-                                <button type="submit"> + </button>
+                                <button
+                                    type="submit"
+                                    className="forkCard__extended__form__button"
+                                > + </button>
                             </form>
                         </>}
                 </div>

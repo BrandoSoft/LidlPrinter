@@ -5,20 +5,38 @@ import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOpera
 import { MdForklift } from "react-icons/md";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
+import OptionsModal from "../modals/OptionsModal";
+import { SlOptionsVertical } from "react-icons/sl";
 
-const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
+
+    const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
 
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
 
+    const optionsModalVisibilityHandler = ()=>{
+        setOptionsModalVisibility(!optionsModalVisibility)
+    }
+
     return (
         <div>
             <li>
                 <div className='forkCard'>
+                    {
+                        optionsModalVisibility?
+                            <OptionsModal
+                                toggleVisible={optionsModalVisibilityHandler}
+                                forkId={id}
+                                replacementId={replacementId}
+                            />
+                            :
+                            null
+                    }
                     <div className='forkCard__ims'>
                         <div>IMS</div>
                         <input
@@ -41,32 +59,45 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
-                            <div className="forkCard__nav__date__in">P:{date}</div>
-                            <div className="forkCard__nav__date__out">W:{leaveDate}</div>
+                            <div className="forkCard__nav__date__in">{date}</div>
+                            <div className="forkCard__nav__date__out">{leaveDate}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /> </div>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><HiOutlineWrenchScrewdriver /> </div>
                                <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "archived")}><FaBoxArchive /> </div>
+                            <div className='forkCard__nav__buttons__button trash' onClick={()=>optionsModalVisibilityHandler()}><SlOptionsVertical /> </div>
                         </div>
                     </div>
                 </div>
                 <div className={extendedInfoVisibility ? 'forkCard__extended' : 'forkCard__extended-closed'}>
                     {extendedInfo !== '' ?
                         <>
-                            <FaPencil className="forkCard__extended__icon" onClick={(e)=> updateExtendedInfo(e,id, '')}/>
-                            {userExtendedInfo}
+                            <div className="forkCard__extended__message">
+                                {userExtendedInfo}
+                            </div>
+                            <div  className="forkCard__extended__icon">
+                                <FaPencil onClick={(e)=>updateExtendedInfo(e,id, '')}/>
+                            </div>
+
                         </>
                         :
                         <>
-                            <form onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}>
+                            <form
+                                onSubmit={(e) => updateExtendedInfo(e, id, userExtendedInfo)}
+                                className="forkCard__extended__form"
+                            >
                                 <input
+                                    className="forkCard__extended__form__input"
                                     type="text"
                                     value={userExtendedInfo}
-                                    placeholder="dodatkowe informacje"
+                                    placeholder="dodatkowe info"
                                     onChange={(e) => setUserExtendedInfo(e.target.value)}
                                 />
-                                <button type="submit"> + </button>
+                                <button
+                                    type="submit"
+                                    className="forkCard__extended__form__button"
+                                > + </button>
                             </form>
                         </>}
                 </div>

@@ -5,19 +5,36 @@ import { MdForklift } from "react-icons/md";
 import { priorityStarGenerator } from "../../utils/PriorityStars";
 import { toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 import './ForkListCSS.css';
+import { SlOptionsVertical } from "react-icons/sl";
+import OptionsModal from "../modals/OptionsModal";
 
-const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement }) => {
+const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId }) => {
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
+    const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
 
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
     }, [extendedInfo]);
 
+    const optionsModalVisibilityHandler = ()=>{
+        setOptionsModalVisibility(!optionsModalVisibility)
+    }
+
     return (
         <div>
             <li>
                 <div className='forkCard'>
+                    {
+                        optionsModalVisibility?
+                            <OptionsModal
+                                toggleVisible={optionsModalVisibilityHandler}
+                                forkId={id}
+                                replacementId={replacementId}
+                            />
+                            :
+                            null
+                    }
                     <div className='forkCard__ims'>
                         <div>IMS</div>
                         <input
@@ -40,13 +57,14 @@ const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims,
                     </div>
                     <div className="forkCard__nav">
                         <div className='forkCard__nav__date'>
-                            <div className="forkCard__nav__date__in">P:{date}</div>
-                            <div className="forkCard__nav__date__out">W:{leaveDate}</div>
+                            <div className="forkCard__nav__date__in">{date}</div>
+                            <div className="forkCard__nav__date__out">{leaveDate}</div>
                         </div>
                         <div className='forkCard__nav__buttons'>
                             <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "arrived")}><MdForklift /></div>
                             <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "done")}><TiShoppingCart /> </div>
                             <div className='forkCard__nav__buttons__button' onClick={() => updateStatus(id, "archived")}><FaBoxArchive /> </div>
+                            <div className='forkCard__nav__buttons__button trash' onClick={()=>optionsModalVisibilityHandler()}><SlOptionsVertical /> </div>
                         </div>
                     </div>
                 </div>
