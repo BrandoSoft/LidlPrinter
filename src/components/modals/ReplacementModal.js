@@ -4,9 +4,6 @@ import { returnReplacementForkToAvailable } from "../../utils/dbOperations";
 
 const ReplacementModal = ({replacement, replacementId, forkId, modalVisibilityHandler}) => {
 
-    console.log('replacement', replacement)
-    console.log('id', replacementId)
-
     return (
         <div className="modal">
           <div>Czy wózek {replacement} wrócił do magazynu?</div>

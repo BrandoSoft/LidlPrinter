@@ -9,14 +9,16 @@ import { FaBoxArchive, FaFileArrowDown, FaPencil, FaScrewdriverWrench } from "re
 import { FaTrashAlt } from "react-icons/fa";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { TiShoppingCart } from "react-icons/ti";
-import Modal from "../modals/Modal";
+import { SlOptionsVertical } from "react-icons/sl";
 import ReplacementModal from "../modals/ReplacementModal";
+import OptionsModal from "../modals/OptionsModal";
 
 const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
     const [modalVisibility, setModalVisibility] = useState(false);
+    const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
 
     useEffect(() => {
         setUserExtendedInfo(extendedInfo);
@@ -25,11 +27,24 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
     const replacementModalVisibilityHandler = ()=>{
         setModalVisibility(!modalVisibility)
     }
+    const optionsModalVisibilityHandler = ()=>{
+        setOptionsModalVisibility(!optionsModalVisibility)
+    }
 
     return (
         <div>
             <li>
                 <div className='forkCard'>
+                    {
+                        optionsModalVisibility?
+                        <OptionsModal
+                            toggleVisible={optionsModalVisibilityHandler}
+                            forkId={id}
+                            replacementId={replacementId}
+                        />
+                        :
+                        null
+                    }
                     {
                         modalVisibility?
                         <ReplacementModal
@@ -77,6 +92,7 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "arrived")}><MdForklift /> </div>
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "wait")}><HiOutlineWrenchScrewdriver /> </div>
                             <div className='forkCard__nav__buttons__button' onClick={()=> updateStatus(id, "done")}><TiShoppingCart /> </div>
+                            <div className='forkCard__nav__buttons__button trash' onClick={()=>optionsModalVisibilityHandler()}><SlOptionsVertical /> </div>
 
                         </div>
                     </div>
@@ -99,10 +115,7 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                                 <button type="submit"> + </button>
                             </form>
                         </>}
-                    <FaTrashAlt
-                        onClick={()=>deleteFORK(id)}
-                        className="forkCard__extended__icon trash"
-                    />
+
                 </div>
             </li>
         </div>

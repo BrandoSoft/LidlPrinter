@@ -93,8 +93,14 @@ export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNu
 }
 
 // Delete Data from Firebase
-export const deleteFORK = async (id)=>{
-    await deleteDoc(doc(db,process.env.REACT_APP_FORKS_DB, id))
+export const deleteFORK = async (forkId, replacementId)=>{
+    await deleteDoc(doc(db,process.env.REACT_APP_FORKS_DB, forkId))
+
+    if(replacementId){
+        await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,replacementId),{
+            isTaken: false
+        })
+    }
 }
 
 export const toggleIMS = async (id, status)=>{
