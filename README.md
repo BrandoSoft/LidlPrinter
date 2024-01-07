@@ -30,11 +30,16 @@ npm install
 - Kolory wózków na dany miesiąc, które już były, które będą w przyszłości
 - Możliwość filtrowania, kolorowania wózków które mają mieć przegląd
 - Liczniki ile wózków zrobionych, ile do zrobienia
+- przemodelowanie archiwum, rozbudowa z możliwością filtrowania itp.
+- możliwość edycji numeru sklepu
+- możliwość edycji numeru seryjnego
+- możliwość edycji numeru wózka zastępczego
 
 
 
 ## Zmiany
 
-- v 0.1 - MVC projektu
+- v 0.1.0 - MVC projektu
 - v 0.1.1 - poprawa css by nie drukowało na 2 stronach, dodanie numerów seryjnych
 - v 0.1.2 - przygotowanie danych pod nowe sklepy, poprawki w css
+- v 0.2.0 - działająca rozbudowana podstawowa funkcjonalność

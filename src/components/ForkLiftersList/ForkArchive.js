@@ -29,6 +29,7 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
     }
     const optionsModalVisibilityHandler = ()=>{
         setOptionsModalVisibility(!optionsModalVisibility)
+        setExtendedInfoVisibility(false)
     }
 
     return (

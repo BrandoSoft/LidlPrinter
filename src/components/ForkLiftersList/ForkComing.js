@@ -20,6 +20,7 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
 
     const optionsModalVisibilityHandler = ()=>{
         setOptionsModalVisibility(!optionsModalVisibility)
+        setExtendedInfoVisibility(false)
     }
 
     return (

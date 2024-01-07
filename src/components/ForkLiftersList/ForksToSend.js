@@ -21,6 +21,7 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
 
     const optionsModalVisibilityHandler = ()=>{
         setOptionsModalVisibility(!optionsModalVisibility)
+        setExtendedInfoVisibility(false)
     }
 
     return (
