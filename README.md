@@ -48,3 +48,4 @@ npm install
 - v 0.1.2 - przygotowanie danych pod nowe sklepy, poprawki w css
 - v 0.2.0 - działająca rozbudowana podstawowa funkcjonalność
 - v 0.2.1 - możliwa edycja numeru zastępczego wózka.
+- v 0.2.2 - mozliwość usuwania i dodawania wózkó do wszytkich kard
