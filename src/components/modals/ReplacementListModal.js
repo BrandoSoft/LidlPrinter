@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './ModalCSS.scss'
-import { swapReplacementFork } from "../../utils/dbOperations";
+import { returnReplacementForkToAvailable, swapReplacementFork } from "../../utils/dbOperations";
 
 const ReplacementListModal = ({replacementList, hide, originalReplacement, originalReplecementId, originalForkId, toggleVisible}) => {
     return (
@@ -32,7 +32,13 @@ const ReplacementListModal = ({replacementList, hide, originalReplacement, origi
                 }
                 return null;
             })}
-            <button className="forkList__button wide-button">Usuń</button>
+            <button
+                className="forkList__button wide-button"
+                onClick={()=> {
+                    returnReplacementForkToAvailable(originalReplecementId, originalForkId)
+                    hide()
+                    toggleVisible()
+            }}>Usuń</button>
             <button className="forkList__button wide-button" onClick={hide}>Zamknij</button>
         </div>
     );
