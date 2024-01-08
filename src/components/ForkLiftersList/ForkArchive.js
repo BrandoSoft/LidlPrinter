@@ -13,7 +13,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import ReplacementModal from "../modals/ReplacementModal";
 import OptionsModal from "../modals/OptionsModal";
 
-const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
+const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -38,11 +38,13 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                 <div className='forkCard'>
                     {
                         optionsModalVisibility?
-                        <OptionsModal
-                            toggleVisible={optionsModalVisibilityHandler}
-                            forkId={id}
-                            replacementId={replacementId}
-                        />
+                            <OptionsModal
+                                toggleVisible={optionsModalVisibilityHandler}
+                                forkId={id}
+                                replacement={replacement}
+                                replacementId={replacementId}
+                                replacementList={replacementList}
+                            />
                         :
                         null
                     }

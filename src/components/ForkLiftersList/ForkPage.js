@@ -21,6 +21,8 @@ const ForkPage = ({data, replacementList}) => {
 
     const [inputShop, setInputShop] = useState('');
     const [inputSN, setInputSN] = useState('98');
+    const [inputShopIMS, setInputShopIMS] = useState('');
+    const [inputSNIMS, setInputSNIMS] = useState('98');
     const [inputShopComing, setInputShopComing] = useState('');
     const [inputSNComing, setInputSNComing] = useState('98');
     const [inputReplacement, setInputReplacement] = useState('');
@@ -128,11 +130,11 @@ const ForkPage = ({data, replacementList}) => {
                         </form>
                 </div>
                 <div className="mainTable__form forkList">
-                    <form className='mainTable__form__add' onSubmit={e => addForkToDBComing(e, inputSN, inputShop)}>
+                    <form className='mainTable__form__add' onSubmit={e => addForkToDBComing(e, inputSNIMS, inputShopIMS)}>
                         <input
                             type="number"
-                            value={inputShop}
-                            onChange={e=>setInputShop(e.target.value)}
+                            value={inputShopIMS}
+                            onChange={e=>setInputShopIMS(e.target.value)}
                             placeholder='Sklep'
                             max={2170}
                             className='mainTable__form__add__input input-short'
@@ -141,11 +143,11 @@ const ForkPage = ({data, replacementList}) => {
                         />
                         <input
                             type="text"
-                            value={inputSN}
+                            value={inputSNIMS}
                             onChange={(e) => {
                                 const inputValue = e.target.value;
                                 if (/^98\d{0,6}$/.test(inputValue)) {
-                                    setInputSN(inputValue);
+                                    setInputSNIMS(inputValue);
                                 }
                             }}
                             placeholder='Numer Seryjny'
@@ -221,6 +223,7 @@ const ForkPage = ({data, replacementList}) => {
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
+                                            replacementList={replacementList}
                                         />
                                     );
                                 }
@@ -257,6 +260,7 @@ const ForkPage = ({data, replacementList}) => {
                                            extendedInfo={data.extendedInfo}
                                            replacement={data.replacement}
                                            replacementId={data.replacementId}
+                                           replacementList={replacementList}
                                        />
                                    );
                                }
@@ -293,6 +297,7 @@ const ForkPage = ({data, replacementList}) => {
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
+                                            replacementList={replacementList}
                                         />
                                     );
                                 }
@@ -325,6 +330,7 @@ const ForkPage = ({data, replacementList}) => {
                                             extendedInfo={data.extendedInfo}
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
+                                            replacementList={replacementList}
                                         />
                                     );
                                 }

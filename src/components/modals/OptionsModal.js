@@ -23,6 +23,7 @@ const OptionsModal = ({toggleVisible, forkId, replacementId, replacementList, re
                     originalReplacement={replacement}
                     originalForkId={forkId}
                     originalReplecementId={replacementId}
+                    toggleVisible={toggleVisible}
                 />}
             <div className="modal__container">
                 <div className="modal__option">

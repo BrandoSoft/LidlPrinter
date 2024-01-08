@@ -83,7 +83,7 @@ export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNu
             shopNumber: inputShop,
             extendedInfo:'',
             replacement: replacementNumber ? replacementNumber : '',
-            replacementId: rid
+            replacementId: rid ? rid : ''
         })
     if(rid){
         await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB, rid),{
@@ -129,9 +129,12 @@ export const returnReplacementForkToAvailable = async (replacementId, forkId) =>
 
 export const swapReplacementFork = async (originalReplacementId, newReplacementId, originalForkId, newReplacementName) =>{
     // change old replacement to true (is avaible)
-    await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,originalReplacementId),{
-        isTaken: false
-    })
+    if(originalReplacementId){
+        await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,originalReplacementId),{
+            isTaken: false
+        })
+    }
+
     // change new replacement to false (is not avaible)
     await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB,newReplacementId),{
         isTaken: true

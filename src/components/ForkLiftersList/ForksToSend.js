@@ -8,7 +8,7 @@ import { priorityStarGenerator } from "../../utils/PriorityStars";
 import OptionsModal from "../modals/OptionsModal";
 import { SlOptionsVertical } from "react-icons/sl";
 
-const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId}) => {
+const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -33,7 +33,9 @@ const ForksToSend = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                             <OptionsModal
                                 toggleVisible={optionsModalVisibilityHandler}
                                 forkId={id}
+                                replacement={replacement}
                                 replacementId={replacementId}
+                                replacementList={replacementList}
                             />
                             :
                             null

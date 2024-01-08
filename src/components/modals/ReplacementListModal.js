@@ -3,7 +3,7 @@ import React from 'react';
 import './ModalCSS.scss'
 import { swapReplacementFork } from "../../utils/dbOperations";
 
-const ReplacementListModal = ({replacementList, hide, originalReplacement, originalReplecementId, originalForkId}) => {
+const ReplacementListModal = ({replacementList, hide, originalReplacement, originalReplecementId, originalForkId, toggleVisible}) => {
     return (
         <div className='replacementListModal'>
             {replacementList.sort((a, b) => {
@@ -24,6 +24,7 @@ const ReplacementListModal = ({replacementList, hide, originalReplacement, origi
 
                             swapReplacementFork(originalReplecementId, e.rId, originalForkId, e.name)
                             hide()
+                            toggleVisible()
                             }}>
                             {e.name}
                         </button>

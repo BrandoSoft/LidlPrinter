@@ -36,7 +36,8 @@ npm install
 - możliwość edycji numeru wózka zastępczego
 - zmienić ikonki w opcjach
 - ~~wyrównać ikonki w opcjach~~
-- naprawić błędy w zmianie wóżków w opcjach
+- ~~naprawić błędy w zmianie wóżków w opcjach~~
+- zamykanie wzzytkich modali po kliknięciu przycisku zmiany wózka
 
 
 

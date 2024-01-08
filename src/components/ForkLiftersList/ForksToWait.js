@@ -8,7 +8,7 @@ import './ForkListCSS.css';
 import { SlOptionsVertical } from "react-icons/sl";
 import OptionsModal from "../modals/OptionsModal";
 
-const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId }) => {
+const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList }) => {
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
     const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
@@ -31,7 +31,9 @@ const ForkArrives = ({ serialNumber, shopNumber, date, leaveDate, prio, id, ims,
                             <OptionsModal
                                 toggleVisible={optionsModalVisibilityHandler}
                                 forkId={id}
+                                replacement={replacement}
                                 replacementId={replacementId}
+                                replacementList={replacementList}
                             />
                             :
                             null
