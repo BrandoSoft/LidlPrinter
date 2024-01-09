@@ -145,3 +145,13 @@ export const swapReplacementFork = async (originalReplacementId, newReplacementI
         replacementId: newReplacementId
     })
 }
+
+// Change Shop Number or Serial Number
+
+export const changeShopOrSN = async (e,type, forkId, newSN) =>{
+    e.preventDefault(e)
+console.log(forkId)
+    await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, forkId),{
+        serialNumber: newSN
+    })
+}

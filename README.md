@@ -33,12 +33,13 @@ npm install
 - przemodelowanie archiwum, rozbudowa z możliwością filtrowania itp.
 - możliwość edycji numeru sklepu
 - ~~możliwość edycji numeru seryjnego~~
-- możliwość edycji numeru wózka zastępczego
+- ~~możliwość edycji numeru wózka zastępczego~~
 - zmienić ikonki w opcjach
 - ~~wyrównać ikonki w opcjach~~
 - ~~naprawić błędy w zmianie wóżków w opcjach~~
 - zamykanie wzzytkich modali po kliknięciu przycisku zmiany wózka
-
+- dodac liste wysłanych wózków
+- zmienic widocznosc modali na jeden stan z obiektem
 
 
 ## Zmiany
@@ -49,3 +50,4 @@ npm install
 - v 0.2.0 - działająca rozbudowana podstawowa funkcjonalność
 - v 0.2.1 - możliwa edycja numeru zastępczego wózka.
 - v 0.2.2 - mozliwość usuwania i dodawania wózkó do wszytkich kard
+- v 0.2.3 - mozliwość zmiany numeru seryjnego wózka

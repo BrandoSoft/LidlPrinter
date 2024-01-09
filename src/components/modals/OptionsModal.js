@@ -4,10 +4,12 @@ import { FaTrashAlt } from "react-icons/fa";
 import { deleteFORK } from "../../utils/dbOperations";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import ReplacementListModal from "./ReplacementListModal";
+import ChangeNumberModal from "./ChangeNumberModal";
 
 const OptionsModal = ({toggleVisible, forkId, replacementId, replacementList, replacement}) => {
 
     const [replacementListModalVisible, setReplacementListModalVisible] = useState(false)
+    const [changeNumberModalVisible, setChangeNumberModalVisible] = useState(false)
 
     const hideReplacementListModalVisible = () => {
         setReplacementListModalVisible(false)
@@ -25,6 +27,12 @@ const OptionsModal = ({toggleVisible, forkId, replacementId, replacementList, re
                     originalReplecementId={replacementId}
                     toggleVisible={toggleVisible}
                 />}
+            {changeNumberModalVisible &&
+            <ChangeNumberModal
+            toggleVisible={toggleVisible}
+            originalForkId={forkId}
+            />
+            }
             <div className="modal__container">
                 <div className="modal__option">
                     <div className="modal__option__icon">
@@ -32,7 +40,7 @@ const OptionsModal = ({toggleVisible, forkId, replacementId, replacementList, re
                     </div>
                     <div className="modal__option__title">Zmień Sklep</div>
                 </div>
-                <div className="modal__option">
+                <div className="modal__option" onClick={()=>setChangeNumberModalVisible(true)}>
                     <div className="modal__option__icon">
                         <FaTrashAlt/>
                     </div>

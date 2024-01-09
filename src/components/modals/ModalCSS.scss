@@ -72,3 +72,11 @@
   background-color: lightgoldenrodyellow;
   border-radius: 10px;
 }
+.changeNumberModal{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: $secondary-button-color;
+  border-radius: 10px;
+}
