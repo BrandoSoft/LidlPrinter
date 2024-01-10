@@ -62,7 +62,8 @@ export const addForkToDB = async (e,inputSN, inputShop) => {
             shopNumber: inputShop,
             extendedInfo:'',
             replacement: '',
-            replacementId: ''
+            replacementId: '',
+            inspection: false,
         })
 }
 export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNumber) => {
@@ -83,7 +84,8 @@ export const addForkToDBComing = async (e,inputSN, inputShop, rid, replacementNu
             shopNumber: inputShop,
             extendedInfo:'',
             replacement: replacementNumber ? replacementNumber : '',
-            replacementId: rid ? rid : ''
+            replacementId: rid ? rid : '',
+            inspection: false
         })
     if(rid){
         await updateDoc(doc(db, process.env.REACT_APP_REPLACEMENT_FORK_DB, rid),{
@@ -105,12 +107,22 @@ export const deleteFORK = async (forkId, replacementId)=>{
     }
 }
 
+// Changing IMS
+
 export const toggleIMS = async (id, status)=>{
     await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id),{
         ims: !status
     })
 }
 
+// Changing IMS > INSPECTION
+
+export const toggleInspection = async (id, status)=>{
+    await updateDoc(doc(db, process.env.REACT_APP_FORKS_DB, id),{
+        inspection: status
+    })
+    console.log(id, status)
+}
 
 // Move Returned Replacement fork to available
 
