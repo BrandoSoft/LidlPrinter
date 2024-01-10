@@ -40,6 +40,7 @@ npm install
 - zamykanie wzzytkich modali po kliknięciu przycisku zmiany wózka
 - dodac liste wysłanych wózków
 - zmienic widocznosc modali na jeden stan z obiektem
+- ~~toggle przegląd/ims~~
 
 
 ## Zmiany
@@ -51,3 +52,4 @@ npm install
 - v 0.2.1 - możliwa edycja numeru zastępczego wózka.
 - v 0.2.2 - mozliwość usuwania i dodawania wózkó do wszytkich kard
 - v 0.2.3 - mozliwość zmiany numeru seryjnego wózka
+- v 0.2.4 - toggle przegląd ims
