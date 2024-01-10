@@ -43,7 +43,7 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                     }
                     <div className='forkCard__ims'>
                         {inspection?
-                            <div onClick={()=>toggleInspection(id, false)}>P</div>
+                            <div className="forkCard__ims__inspection" onClick={()=>toggleInspection(id, false)}>P</div>
                             :
                             <><div onClick={()=>toggleInspection(id, true)}>IMS</div>
                             <input
