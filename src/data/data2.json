@@ -1,0 +1,458 @@
+[
+  {
+    "sklep": "1026",
+    "miasto": "Radom",
+    "adres": "Wierzbicka 94",
+    "szpura": ["140 C"],
+    "paleciak": ["98412176", "98661307"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1056",
+    "miasto": "Radom",
+    "adres": "Struga 73a",
+    "szpura": ["141 B", "141 C"],
+    "paleciak": ["98412177", "98291552", "98326435"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1058",
+    "miasto": "Pruszków",
+    "adres": "B. Prusa 121",
+    "szpura": ["163 A", "163 B"],
+    "paleciak": ["98192187", "98271879", "98112126"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1083",
+    "miasto": "Warszawa",
+    "adres": "Conrada 1",
+    "szpura": ["162 B", "162 C"],
+    "paleciak": ["98092859", "98329056", "98112116", "98322653", "98328761"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1099",
+    "miasto": "Warszawa",
+    "adres": "Sosnkowskiego 2",
+    "szpura": ["156 A", "156 B"],
+    "paleciak": ["98108157", "98055041", "98329040"],
+    "hako": ["12345-1"]
+  },  
+  {
+    "sklep": "1108",
+    "miasto": "Ostrowiec Świętokrzyski",
+    "adres": "",
+    "szpura": ["139 C", "139 D"],
+    "paleciak": ["98091293", "98181388"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1124",
+    "miasto": "Warszawa",
+    "adres": "Powstańców Śląskich 72",
+    "szpura": ["159 A", "159 B", "159 C"],
+    "paleciak": ["98329059", "98293004", "98376207", "98058253"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1125",
+    "miasto": "Warszawa",
+    "adres": "Pileckiego 103",
+    "szpura": ["155 C", "155 D"],
+    "paleciak": ["98329043", "98261304", "98376113", "98341052"],
+    "hako": ["12345-1"]
+  },
+    {
+    "sklep": "1134",
+    "miasto": "",
+    "adres": "",
+    "szpura": ["138 D"],
+    "paleciak": ["98119637", "98103656"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1154",
+    "miasto": "Piaseczno",
+    "adres": "Okulickiego 3b",
+    "szpura": ["146 B", "146C"],
+    "paleciak": ["98329042", "98293578", "98282409"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1159",
+    "miasto": "Skierniewice",
+    "adres": "Sobieskiego 27",
+    "szpura": ["166 D", "167 A"],
+    "paleciak": ["98334061", "98412179", "98286563"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1203",
+    "miasto": "Pionki",
+    "adres": "Radomska 11",
+    "szpura": ["142 D", "143 A"],
+    "paleciak": ["98133027", "98293579", "98291572"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1239",
+    "miasto": "Żyrardów",
+    "adres": "Okrzei 54b",
+    "szpura": ["166 B", "166 C"],
+    "paleciak": ["98133030", "98376199", "98227103"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1240",
+    "miasto": "Radom",
+    "adres": "1905r 26",
+    "szpura": ["140 D", "141 A"],
+    "paleciak": ["98341045", "98099222", "98133028"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1255",
+    "miasto": "Radom",
+    "adres": "Główna 69",
+    "szpura": ["142 B", "142 C"],
+    "paleciak": ["98376118", "98293022", "98079572"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1339",
+    "miasto": "Warszawa",
+    "adres": "al. Krakowska 253",
+    "szpura": ["158 A", "158 B"],
+    "paleciak": ["98154143", "98261300", "98262340", "98328770"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1356",
+    "miasto": "Grodzisk Mazowiecki",
+    "adres": "Królewska 57B",
+    "szpura": ["163 C", "163 D", "164 A"],
+    "paleciak": ["98177518", "98133023", "98334062", "98078665", "90566277"],
+    "hako": ["12345-1"]
+  },
+    {
+    "sklep": "1421",
+    "miasto": "",
+    "adres": "",
+    "szpura": ["138 A", "138 B"],
+    "paleciak": ["98161979", "98145132"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1452",
+    "miasto": "Warszawa",
+    "adres": "Plastyczna 12",
+    "szpura": ["160 D", "161 A"],
+    "paleciak": ["98064447", "98210840", "98261301"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1475",
+    "miasto": "Pruszków",
+    "adres": "Bohaterów Warszawy",
+    "szpura": ["162 D", "163 A"],
+    "paleciak": ["98227102", "98376201", "98112127"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1495",
+    "miasto": "Konstancin Jeziorna",
+    "adres": "1000-lecia Państwa Polskiego 2",
+    "szpura": ["146 D", "147 A"],
+    "paleciak": ["98261303", "98282408"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1527",
+    "miasto": "Warszawa",
+    "adres": "Puławska 540",
+    "szpura": ["149 B", "149 C"],
+    "paleciak": ["98329041", "98112128"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1545",
+    "miasto": "Warszawa",
+    "adres": "Jagiełły 6",
+    "szpura": ["160 B", "160C"],
+    "paleciak": ["98064452", "98261302", "98207140"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1572",
+    "miasto": "Warszawa",
+    "adres": "Bolesława 1a",
+    "szpura": ["161 B", "161 C"],
+    "paleciak": ["98329063", "98094902", "98126663"],
+    "hako": ["12345-1"]
+  },
+   {
+    "sklep": "1606",
+    "miasto": "",
+    "adres": "",
+    "szpura": ["139 A"],
+    "paleciak": ["98099209", "98334028"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1645",
+    "miasto": "Łatchorzew",
+    "adres": "Warszawska 216",
+    "szpura": ["161 D", "162 A"],
+    "paleciak": ["98376206", "98376214", "98112129"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1698",
+    "miasto": "Warszawa",
+    "adres": "Stryjeńskich 15J",
+    "szpura": ["155 A", "155 B"],
+    "paleciak": ["98412162", "98412163", "98282461", "90435604"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1703",
+    "miasto": "Radom",
+    "adres": "Mieszka I 10",
+    "szpura": ["141 D", "142A"],
+    "paleciak": ["98412164", "98412180", "98412181"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1709",
+    "miasto": "Warszawa",
+    "adres": "Fort Służew 2",
+    "szpura": ["154 A", "154 B"],
+    "paleciak": ["98282249", "98293023", "98293024"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1715",
+    "miasto": "Warszawa",
+    "adres": "Kopalniana 24",
+    "szpura": ["159 D", "160 A"],
+    "paleciak": ["98097162", "98291543", "98097163"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1736",
+    "miasto": "Nadarzyn",
+    "adres": "Mszczonowska 21",
+    "szpura": ["165 D", "166 A"],
+    "paleciak": ["98225094", "98103770", "98103769"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1747",
+    "miasto": "Góra Kalwaria",
+    "adres": "Kardynała Wyszyńskiego 13A",
+    "szpura": ["145 D", "146 A"],
+    "paleciak": ["98112159", "98112160", "98282405"],
+    "hako": ["12345-1"]
+  },
+  {
+  "sklep": "1758",
+  "miasto": "",
+  "adres": "",
+  "szpura": ["138 C"],
+  "paleciak": ["98099294", "98099295"],
+  "hako": ["12345-1"]
+},
+  {
+  "sklep": "1770",
+  "miasto": "Warszawa",
+  "adres": "Rosoła 18",
+  "szpura": ["154 C", "154 D"],
+  "paleciak": ["98145564", "98145563", "98282460"],
+  "hako": ["12345-1"]
+},
+  {
+    "sklep": "1797",
+    "miasto": "Warszawa",
+    "adres": "Wolska 19/25",
+    "szpura": ["153 C", "153 D", "153 E"],
+    "paleciak": ["98096059", "98412327", "98412328", "98185237"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1813",
+    "miasto": "Łowicz",
+    "adres": "Świętojańska 6",
+    "szpura": ["167 B", "167 C"],
+    "paleciak": ["98194532", "98194533"],
+    "hako": ["12345-1"]
+  },
+    {
+    "sklep": "1846",
+    "miasto": "",
+    "adres": "",
+    "szpura": ["139 B"],
+    "paleciak": ["98222839", "98222838"],
+    "hako": ["12345-1"]
+  },
+  {
+  "sklep": "1850",
+  "miasto": "Warszawa",
+  "adres": "al. Krakowska 79",
+  "szpura": ["157 C", "157 D"],
+  "paleciak": ["98240188", "98240189", "98282458"],
+  "hako": ["12345-1"]
+},
+  {
+    "sklep": "1859",
+    "miasto": "Kozienice",
+    "adres": "Warszawska 61A",
+    "szpura": ["145 C", "145 D"],
+    "paleciak": ["98185236", "98181376", "98282411"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1859",
+    "miasto": "Kozienice",
+    "adres": "Warszawska 61A",
+    "szpura": ["143 B", "143 C"],
+    "paleciak": ["98185236", "98181376", "98282411"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1867",
+    "miasto": "Warszawa",
+    "adres": "Wolska 16",
+    "szpura": ["158 C", "158 D"],
+    "paleciak": ["98157083", "98157084", "98225861"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1876",
+    "miasto": "Sochaczew",
+    "adres": "Traugutta 19",
+    "szpura": ["152 C", "152 D"],
+    "paleciak": ["98227193", "98227194", "98286567", "98412178"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1902",
+    "miasto": "Chyliczki",
+    "adres": "Wschodnia 1",
+    "szpura": ["147 B", "147 C"],
+    "paleciak": ["98284644", "98284645", "98291556"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1963",
+    "miasto": "Warszawa",
+    "adres": "Czerniakowska 87A",
+    "szpura": ["151 A", "151 B"],
+    "paleciak": ["98286174", "98286175", "98282412"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1996",
+    "miasto": "Lesznowola",
+    "adres": "Słoneczna 178",
+    "szpura": ["148 D", "149 A"],
+    "paleciak": ["98282251", "98282250", "98125961"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "1998",
+    "miasto": "Warszawa",
+    "adres": "Al. Sikorskiego 18/U3",
+    "szpura": ["151 C", "151 D"],
+    "paleciak": ["98388474", "98322654", "98270533"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2029",
+    "miasto": "Tarczyn",
+    "adres": "Warszawska Gawarskiego",
+    "szpura": ["144 D", "145 A"],
+    "paleciak": ["98313759", "98064454", "98313760"],
+    "hako": ["12345-1"]
+  },
+  {
+  "sklep": "2030",
+  "miasto": "Warka",
+  "adres": "Puławska 30D",
+  "szpura": ["144 B", "144 C"],
+  "paleciak": ["98334724", "98334725"],
+  "hako": ["12345-1"]
+},
+  {
+    "sklep": "2042",
+    "miasto": "Juzefosław",
+    "adres": "Geodetów 57",
+    "szpura": ["147 D", "148 A"],
+    "paleciak": ["98112125", "98280330", "98286539"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2082",
+    "miasto": "Janki",
+    "adres": "Pl.S Szwedzki",
+    "szpura": ["145 B", "145 C"],
+    "paleciak": ["98282248", "98329305", "98329306"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2094",
+    "miasto": "Białobrzegi",
+    "adres": "Rzemieślnicza 32",
+    "szpura": ["144 A"],
+    "paleciak": ["98334368", "98334369"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2125",
+    "miasto": "Otrębusy",
+    "adres": "Pszczelińska 111",
+    "szpura": ["165B", "165C"],
+    "paleciak": ["98374930", "98374931", "98068052"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2135",
+    "miasto": "",
+    "adres": "",
+    "szpura": ["168 A", "168 B"],
+    "paleciak": ["98337847", "98337848"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2147",
+    "miasto": "Radom",
+    "adres": "Wojska Polskiego 12",
+    "szpura": ["140 A", "140 B"],
+    "paleciak": ["98334735", "98334736", "98080042"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2150",
+    "miasto": "Warszawa",
+    "adres": "Rydygiera",
+    "szpura": ["153 A", "153 B"],
+    "paleciak": ["98374946", "98374947", "98417628"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2152",
+    "miasto": "Dawidy Bankowe",
+    "adres": "Długa 12",
+    "szpura": ["148 B", "148 C"],
+    "paleciak": ["98391584", "98391585"],
+    "hako": ["12345-1"]
+  },
+  {
+    "sklep": "2170",
+    "miasto": "Warszawa",
+    "adres": "Tamka",
+    "szpura": ["152 A", "152 B"],
+    "paleciak": ["98391588", "98391589"],
+    "hako": ["12345-1"]
+  }
+  ]
