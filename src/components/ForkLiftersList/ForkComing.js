@@ -43,9 +43,9 @@ const ForkComing = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, ex
                     }
                     <div className='forkCard__ims'>
                         {inspection?
-                            <div className="forkCard__ims__inspection" onClick={()=>toggleInspection(id, false)}>P</div>
+                            <div className="forkCard__ims__inspection" onClick={()=>toggleInspection(id, false)} style={{cursor: 'pointer'}}>P</div>
                             :
-                            <><div onClick={()=>toggleInspection(id, true)}>IMS</div>
+                            <><div onClick={()=>toggleInspection(id, true)} style={{cursor: 'pointer'}}>IMS</div>
                             <input
                             type='checkbox'
                             onChange={() =>toggleIMS(id, ims)}

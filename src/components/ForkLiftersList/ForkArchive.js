@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 import { priorityStarGenerator } from "../../utils/PriorityStars";
-import { deleteFORK, toggleIMS, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
+import { deleteFORK, toggleIMS, toggleInspection, updateExtendedInfo, updateStatus } from "../../utils/dbOperations";
 
 import { MdForklift } from "react-icons/md";
 import { FaBoxArchive, FaFileArrowDown, FaPencil, FaScrewdriverWrench } from "react-icons/fa6";
@@ -13,7 +13,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import ReplacementModal from "../modals/ReplacementModal";
 import OptionsModal from "../modals/OptionsModal";
 
-const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList}) => {
+const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, extendedInfo, replacement, replacementId, replacementList, inspection}) => {
 
     const [userExtendedInfo, setUserExtendedInfo] = useState('');
     const [extendedInfoVisibility, setExtendedInfoVisibility] = useState(false);
@@ -60,12 +60,16 @@ const ForkArchive = ({serialNumber,shopNumber, date, leaveDate, prio, id, ims, e
                         null
                     }
                     <div className='forkCard__ims'>
-                        <div>IMS</div>
-                        <input
-                            type='checkbox'
-                            onChange={() =>toggleIMS(id, ims)}
-                            checked={ims? 'checked' : ''}
-                        />
+                        {inspection?
+                            <div className="forkCard__ims__inspection" onClick={()=>toggleInspection(id, false)} style={{cursor: 'pointer'}}>P</div>
+                            :
+                            <><div onClick={()=>toggleInspection(id, true)} style={{cursor: 'pointer'}}>IMS</div>
+                                <input
+                                    type='checkbox'
+                                    onChange={() =>toggleIMS(id, ims)}
+                                    checked={ims? 'checked' : ''}
+                                /></>
+                        }
                         <FaFileArrowDown
                             className={extendedInfoVisibility ? 'forkCard__ims__icon-reversed' : 'forkCard__ims__icon'}
                             onClick={() => setExtendedInfoVisibility(!extendedInfoVisibility)}

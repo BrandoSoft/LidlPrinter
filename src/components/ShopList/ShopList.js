@@ -1,5 +1,5 @@
 import React from 'react';
-import Data from '../../data/data2.json'
+import Data from '../../data/data2_old.json'
 import ShopCard from "../ShopCard/ShopCard";
 
 import './ShopList.css'

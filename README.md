@@ -53,3 +53,4 @@ npm install
 - v 0.2.2 - mozliwość usuwania i dodawania wózkó do wszytkich kard
 - v 0.2.3 - mozliwość zmiany numeru seryjnego wózka
 - v 0.2.4 - toggle przegląd ims
+- v 0.2.4.1 - bugfixes

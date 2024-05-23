@@ -263,6 +263,7 @@ const ForkPage = ({data, replacementList}) => {
                                            replacement={data.replacement}
                                            replacementId={data.replacementId}
                                            replacementList={replacementList}
+                                           inspection={data.inspection}
                                        />
                                    );
                                }
@@ -300,6 +301,7 @@ const ForkPage = ({data, replacementList}) => {
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
                                             replacementList={replacementList}
+                                            inspection={data.inspection}
                                         />
                                     );
                                 }
@@ -333,6 +335,7 @@ const ForkPage = ({data, replacementList}) => {
                                             replacement={data.replacement}
                                             replacementId={data.replacementId}
                                             replacementList={replacementList}
+                                            inspection={data.inspection}
                                         />
                                     );
                                 }
